@@ -1,0 +1,70 @@
+/home/pedro/anaconda2/bin/python /home/pedro/pycharm-community-2017.3.2/helpers/pydev/pydevd.py --multiproc --qt-support=auto --client 127.0.0.1 --port 43083 --file /home/pedro/repositorios/tagger/train.py --train dataset/train.txt --dev dataset/dev.txt --test dataset/test.txt --tag_scheme=iob
+pydev debugger: process 1657 is connecting
+
+Connected to pydev debugger (build 173.4301.16)
+Using cuDNN version 6021 on context None
+Mapped name None to device cuda: GeForce GTX 1070 (0000:01:00.0)
+Model location: ./models/tag_scheme=iob,lower=False,zeros=False,char_dim=25,char_lstm_dim=25,char_bidirect=True,word_dim=100,word_lstm_dim=100,word_bidirect=True,pre_emb=,all_emb=False,cap_dim=0,crf=True,dropout=0.5,lr_method=sgd-lr_.005
+Found 14025 unique words (62480 in total)
+Found 123 unique characters
+Found 21 unique named entity tags
+2955 / 529 / 854 sentences in train / dev / test.
+Saving the mappings to disk...
+Compiling...
+Starting epoch 0...
+50, cost average: 24.347136
+100, cost average: 13.651598
+150, cost average: 21.834812
+200, cost average: 15.359250
+250, cost average: 19.238853
+300, cost average: 20.125486
+350, cost average: 22.085491
+400, cost average: 20.821020
+450, cost average: 19.638531
+500, cost average: 20.058052
+550, cost average: 15.120228
+600, cost average: 17.631517
+650, cost average: 23.199543
+700, cost average: 13.153642
+750, cost average: 17.339073
+800, cost average: 18.285389
+850, cost average: 14.911447
+900, cost average: 16.973989
+950, cost average: 22.377031
+processed 8831 tokens with 709 phrases; found: 0 phrases; correct: 0.
+accuracy:  84.58%; precision:   0.00%; recall:   0.00%; FB1:   0.00
+       ABSTRACCAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+    ACONTECIMENTO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            COISA: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+             OBRA: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            OUTRO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            TEMPO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            VALOR: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+ID     NE  Total      OI-TEMPOB-PESSOAI-PESSOAB-LOCALB-TEMPOB-ORGANIZACAO I-OBRAI-ORGANIZACAOI-LOCAL B-OBRAB-COISAB-ABSTRACCAOI-ACONTECIMENTOI-VALORI-ABSTRACCAOB-VALORB-ACONTECIMENTOI-COISAI-OUTROB-OUTRO  Percent
+ 0      O   7469   7469      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0  100.000
+ 1I-TEMPO    195    195      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 2B-PESSOA    208    208      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 3I-PESSOA    157    157      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 4B-LOCAL    138    138      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 5B-TEMPO    122    122      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 6B-ORGANIZACAO     40     40      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 7 I-OBRA    100    100      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 8I-ORGANIZACAO     21     21      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+ 9I-LOCAL     59     59      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+10 B-OBRA     52     52      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+11B-COISA     37     37      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+12B-ABSTRACCAO     41     41      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+13I-ACONTECIMENTO     39     39      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+14I-VALOR     30     30      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+15I-ABSTRACCAO     29     29      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+16B-VALOR     41     41      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+17B-ACONTECIMENTO     25     25      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+18I-COISA     19     19      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+19I-OUTRO      4      4      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+20B-OUTRO      5      5      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0      0    0.000
+7469/8831 (84.57706%)
+
+

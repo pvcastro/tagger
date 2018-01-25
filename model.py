@@ -163,7 +163,7 @@ class Model(object):
             # Initialize with pretrained embeddings
             if pre_emb and training:
                 new_weights = word_layer.embeddings.get_value()
-                print 'Loading pretrained embeddings from %s...' % pre_emb
+                print('Loading pretrained embeddings from %s...' % pre_emb)
                 pretrained = {}
                 emb_invalid = 0
                 for i, line in enumerate(codecs.open(pre_emb, 'r', 'utf-8')):
@@ -175,12 +175,12 @@ class Model(object):
                     else:
                         emb_invalid += 1
                 if emb_invalid > 0:
-                    print 'WARNING: %i invalid lines' % emb_invalid
+                    print('WARNING: %i invalid lines' % emb_invalid)
                 c_found = 0
                 c_lower = 0
                 c_zeros = 0
                 # Lookup table initialization
-                for i in xrange(n_words):
+                for i in range(n_words):
                     word = self.id_to_word[i]
                     if word in pretrained:
                         new_weights[i] = pretrained[word]
@@ -194,7 +194,7 @@ class Model(object):
                         ]
                         c_zeros += 1
                 word_layer.embeddings.set_value(new_weights)
-                print 'Loaded %i pretrained embeddings.' % len(pretrained)
+                print('Loaded %i pretrained embeddings.' % len(pretrained))
                 print ('%i / %i (%.4f%%) words have been initialized with '
                        'pretrained embeddings.') % (
                             c_found + c_lower + c_zeros, n_words,
@@ -367,7 +367,7 @@ class Model(object):
             lr_method_parameters = {}
 
         # Compile training function
-        print 'Compiling...'
+        print('Compiling...')
         if training:
             updates = Optimization(clip=5.0).get_updates(lr_method_name, cost, params, **lr_method_parameters)
             f_train = theano.function(

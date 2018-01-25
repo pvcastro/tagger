@@ -17,10 +17,11 @@ def get_name(parameters):
     """
     l = []
     for k, v in parameters.items():
-        if type(v) is str and "/" in v:
-            l.append((k, v[::-1][:v[::-1].index('/')][::-1]))
-        else:
-            l.append((k, v))
+        if k not in ['train', 'test', 'dev', 'reload']:
+            if type(v) is str and "/" in v:
+                l.append((k, v[::-1][:v[::-1].index('/')][::-1]))
+            else:
+                l.append((k, v))
     name = ",".join(["%s=%s" % (k, str(v).replace(',', '')) for k, v in l])
     return "".join(i for i in name if i not in "\/:*?<>|")
 
@@ -238,7 +239,7 @@ def create_input(data, parameters, add_label, singletons=None):
 
 
 def evaluate(parameters, f_eval, raw_sentences, parsed_sentences,
-             id_to_tag, dictionary_tags):
+             id_to_tag, verbose=True):
     """
     Evaluate current model using CoNLL script.
     """
@@ -276,28 +277,29 @@ def evaluate(parameters, f_eval, raw_sentences, parsed_sentences,
     # CoNLL evaluation results
     eval_lines = [l.rstrip() for l in codecs.open(scores_path, 'r', 'utf8')]
     for line in eval_lines:
-        print line
+        print(line)
 
     # Remove temp files
     # os.remove(output_path)
     # os.remove(scores_path)
 
-    # Confusion matrix with accuracy for each tag
-    print ("{: >2}{: >7}{: >7}%s{: >9}" % ("{: >7}" * n_tags)).format(
-        "ID", "NE", "Total",
-        *([id_to_tag[i] for i in xrange(n_tags)] + ["Percent"])
-    )
-    for i in xrange(n_tags):
+    if verbose:
+        # Confusion matrix with accuracy for each tag
         print ("{: >2}{: >7}{: >7}%s{: >9}" % ("{: >7}" * n_tags)).format(
-            str(i), id_to_tag[i], str(count[i].sum()),
-            *([count[i][j] for j in xrange(n_tags)] +
-              ["%.3f" % (count[i][i] * 100. / max(1, count[i].sum()))])
+            "ID", "NE", "Total",
+            *([id_to_tag[i] for i in range(n_tags)] + ["Percent"])
         )
+        for i in range(n_tags):
+            print ("{: >2}{: >7}{: >7}%s{: >9}" % ("{: >7}" * n_tags)).format(
+                str(i), id_to_tag[i], str(count[i].sum()),
+                *([count[i][j] for j in range(n_tags)] +
+                  ["%.3f" % (count[i][i] * 100. / max(1, count[i].sum()))])
+            )
 
     # Global accuracy
-    print "%i/%i (%.5f%%)" % (
+    print("%i/%i (%.5f%%)" % (
         count.trace(), count.sum(), 100. * count.trace() / max(1, count.sum())
-    )
+    ))
 
     # F1 on all entities
     return float(eval_lines[1].strip().split()[-1])
