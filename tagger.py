@@ -63,8 +63,8 @@ with codecs.open(opts.input, 'r', 'utf-8') as f_input:
         words_ini = line.rstrip().split()
         if line:
             # Lowercase sentence
-            if parameters['lower']:
-                line = line.lower()
+            #if parameters['lower']:
+            #    line = line.lower()
             # Replace all digits with zeros
             if parameters['zeros']:
                 line = zero_digits(line)

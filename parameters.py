@@ -4,7 +4,7 @@ from collections import OrderedDict
 from bitstring import BitArray
 
 
-def get_parameters(train=None, dev=None, test=None, tag_scheme='iobes', lower=False, zeros=False, char_dim=25,
+def get_parameters(train=None, dev=None, test=None, tag_scheme='iobes', lower=False, zeros=True, char_dim=25,
              char_lstm_dim=25, char_bidirect=True, word_dim=100, word_lstm_dim=100, word_bidirect=True, pre_emb=None,
              all_emb=False, cap_dim=0, crf=True, dropout=0.5, lr_method='sgd-lr_.005', reload=False):
     parameters = OrderedDict()

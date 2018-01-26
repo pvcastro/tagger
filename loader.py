@@ -153,6 +153,12 @@ def prepare_dataset(sentences, word_to_id, char_to_id, tag_to_id, lower=False):
     return data
 
 
+def get_embeddings_from_line(line):
+    line_split = line.rstrip().split()
+    if len(line_split >= 0):
+        return line_split[0].strip()
+
+
 def augment_with_pretrained(dictionary, ext_emb_path, words):
     """
     Augment the dictionary with words that have a pretrained embedding.
@@ -166,8 +172,9 @@ def augment_with_pretrained(dictionary, ext_emb_path, words):
     # Load pretrained embeddings from file
     pretrained = set([
         line.rstrip().split()[0].strip()
+        #get_embeddings_from_line(line)
         for line in codecs.open(ext_emb_path, 'r', 'utf-8')
-        if len(ext_emb_path) > 0
+        if len(ext_emb_path) > 0 and len(line) > 1
     ])
 
     # We either add every word in the pretrained file,

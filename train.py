@@ -7,6 +7,7 @@ import itertools
 from collections import OrderedDict
 from utils import create_input
 import loader
+import time
 
 from utils import models_path, evaluate, eval_script, eval_temp
 from loader import word_mapping, char_mapping, tag_mapping
@@ -37,7 +38,7 @@ optparser.add_option(
     type='int', help="Lowercase words (this will not affect character inputs)"
 )
 optparser.add_option(
-    "-z", "--zeros", default="0",
+    "-z", "--zeros", default="1",
     type='int', help="Replace digits with 0"
 )
 optparser.add_option(
@@ -92,6 +93,14 @@ optparser.add_option(
     "-r", "--reload", default="0",
     type='int', help="Reload the last saved model"
 )
+optparser.add_option(
+    "-e", "--epochs", default="100",
+    type='int', help="Training epochs"
+)
+optparser.add_option(
+    "-v", "--verbose", default="0",
+    type='int', help="Verbose output (0 to disable)"
+)
 opts = optparser.parse_args()[0]
 
 # Parse parameters
@@ -111,6 +120,8 @@ parameters['cap_dim'] = opts.cap_dim
 parameters['crf'] = opts.crf == 1
 parameters['dropout'] = opts.dropout
 parameters['lr_method'] = opts.lr_method
+
+verbose = opts.verbose == 1
 
 # Check parameters validity
 assert os.path.isfile(opts.train)
@@ -200,34 +211,35 @@ if opts.reload:
 #
 singletons = set([word_to_id[k] for k, v
                   in dico_words_train.items() if v == 1])
-n_epochs = 1  # number of epochs over the training set
+n_epochs = opts.epochs  # number of epochs over the training set
 freq_eval = 1000  # evaluate on dev every freq_eval steps
 best_dev = -np.inf
 best_test = -np.inf
 count = 0
 for epoch in range(n_epochs):
     epoch_costs = []
-    print("Starting epoch %i..." % epoch)
+    print("Starting epoch %i at..." % epoch, time.ctime())
     for i, index in enumerate(np.random.permutation(len(train_data))):
         count += 1
         input = create_input(train_data[index], parameters, True, singletons)
         new_cost = f_train(*input)
         epoch_costs.append(new_cost)
-        if i % 50 == 0 and i > 0 == 0:
+        if i % 50 == 0 and i > 0 == 0 and verbose:
             print("%i, cost average: %f" % (i, np.mean(epoch_costs[-50:])))
         if count % freq_eval == 0:
             dev_score = evaluate(parameters, f_eval, dev_sentences,
-                                 dev_data, id_to_tag, dico_tags)
-            test_score = evaluate(parameters, f_eval, test_sentences,
-                                  test_data, id_to_tag, dico_tags)
+                                 dev_data, id_to_tag, verbose=verbose)
+            #test_score = evaluate(parameters, f_eval, test_sentences,
+            #                      test_data, id_to_tag, verbose=verbose)
             print("Score on dev: %.5f" % dev_score)
-            print("Score on test: %.5f" % test_score)
+            #print("Score on test: %.5f" % test_score)
             if dev_score > best_dev:
                 best_dev = dev_score
                 print("New best score on dev.")
                 print("Saving model to disk...")
                 model.save()
-            if test_score > best_test:
-                best_test = test_score
-                print("New best score on test.")
-    print("Epoch %i done. Average cost: %f" % (epoch, np.mean(epoch_costs)))
+            #if test_score > best_test:
+            #    best_test = test_score
+            #    print("New best score on test.")
+    print("Epoch %i done. Average cost: %f. Ended at..." % (epoch, np.mean(epoch_costs)), time.ctime())
+print("Best F1 score:", best_dev)

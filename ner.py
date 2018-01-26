@@ -143,5 +143,5 @@ class NER(object):
                         if test_score > best_test:
                             best_test = test_score
                             print("New best score on test.")
-            print("Epoch %i done. Average cost: %f" % (epoch, np.mean(epoch_costs)))
+            print("Epoch %i done. Average cost: %f. Ended at..." % (epoch, np.mean(epoch_costs)), time.ctime())
         return best_dev
