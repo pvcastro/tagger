@@ -194,6 +194,10 @@ test_data = prepare_dataset(
 print("%i / %i / %i sentences in train / dev / test." % (
     len(train_data), len(dev_data), len(test_data)))
 
+# Save the mappings to disk
+print('Saving the mappings to disk...')
+model.save_mappings(id_to_word, id_to_char, id_to_tag)
+
 # Build the model
 f_train, f_eval = model.build(**parameters)
 
@@ -204,7 +208,6 @@ if opts.reload:
 
 best_dev = -np.inf
 best_test = -np.inf
-
 
 dev_score = evaluate(parameters, f_eval, dev_sentences,
                      dev_data, id_to_tag, verbose=verbose)
@@ -220,3 +223,4 @@ if dev_score > best_dev:
 if test_score > best_test:
     best_test = test_score
     print("New best score on test.")
+print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))

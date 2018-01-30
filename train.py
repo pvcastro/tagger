@@ -242,4 +242,4 @@ for epoch in range(n_epochs):
                 best_test = test_score
                 print("New best score on test.")
     print("Epoch %i done. Average cost: %f. Ended at..." % (epoch, np.mean(epoch_costs)), time.ctime())
-print("Best F1 score:", best_dev)
+print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
