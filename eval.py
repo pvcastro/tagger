@@ -194,10 +194,6 @@ test_data = prepare_dataset(
 print("%i / %i / %i sentences in train / dev / test." % (
     len(train_data), len(dev_data), len(test_data)))
 
-# Save the mappings to disk
-print('Saving the mappings to disk...')
-model.save_mappings(id_to_word, id_to_char, id_to_tag)
-
 # Build the model
 f_train, f_eval = model.build(**parameters)
 
@@ -206,40 +202,21 @@ if opts.reload:
     print('Reloading previous model...')
     model.reload()
 
-#
-# Train network
-#
-singletons = set([word_to_id[k] for k, v
-                  in dico_words_train.items() if v == 1])
-n_epochs = opts.epochs  # number of epochs over the training set
-freq_eval = 1000  # evaluate on dev every freq_eval steps
 best_dev = -np.inf
 best_test = -np.inf
-count = 0
-for epoch in range(n_epochs):
-    epoch_costs = []
-    print("Starting epoch %i at..." % epoch, time.ctime())
-    for i, index in enumerate(np.random.permutation(len(train_data))):
-        count += 1
-        input = create_input(train_data[index], parameters, True, singletons)
-        new_cost = f_train(*input)
-        epoch_costs.append(new_cost)
-        if i % 50 == 0 and i > 0 == 0 and verbose:
-            print("%i, cost average: %f" % (i, np.mean(epoch_costs[-50:])))
-        if count % freq_eval == 0:
-            dev_score = evaluate(parameters, f_eval, dev_sentences,
-                                 dev_data, id_to_tag, verbose=verbose)
-            test_score = evaluate(parameters, f_eval, test_sentences,
-                                  test_data, id_to_tag, verbose=verbose)
-            print("Score on dev: %.5f" % dev_score)
-            print("Score on test: %.5f" % test_score)
-            if dev_score > best_dev:
-                best_dev = dev_score
-                print("New best score on dev.")
-                print("Saving model to disk...")
-                model.save()
-            if test_score > best_test:
-                best_test = test_score
-                print("New best score on test.")
-    print("Epoch %i done. Average cost: %f. Ended at..." % (epoch, np.mean(epoch_costs)), time.ctime())
-print("Best F1 score:", best_dev)
+
+
+dev_score = evaluate(parameters, f_eval, dev_sentences,
+                     dev_data, id_to_tag, verbose=verbose)
+test_score = evaluate(parameters, f_eval, test_sentences,
+                      test_data, id_to_tag, verbose=verbose)
+print("Score on dev: %.5f" % dev_score)
+print("Score on test: %.5f" % test_score)
+if dev_score > best_dev:
+    best_dev = dev_score
+    print("New best score on dev.")
+    print("Saving model to disk...")
+    model.save()
+if test_score > best_test:
+    best_test = test_score
+    print("New best score on test.")
