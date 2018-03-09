@@ -1,0 +1,848 @@
+/home/pedro/anaconda2/bin/python /home/pedro/repositorios/portuguese-tagger/train.py --train dataset/training/fold-0/filtered_train.txt --dev dataset/training/fold-0/filtered_test.txt --test dataset/filtered_mini.txt --tag_scheme=iobes --epochs=5 --all_emb=1 --pre_emb=embeddings/glove_s100.txt
+Using cuDNN version 6021 on context None
+Mapped name None to device cuda: GeForce GTX 1070 (0000:01:00.0)
+Model location: ./models/tag_scheme=iobes,lower=False,zeros=True,char_dim=25,char_lstm_dim=25,char_bidirect=True,word_dim=100,word_lstm_dim=100,word_bidirect=True,pre_emb=glove_s100.txt,all_emb=True,cap_dim=0,crf=True,dropout=0.5,lr_method=sgd-lr_.005
+Found 23073 unique words (155696 in total)
+Loading pretrained embeddings from embeddings/glove_s100.txt...
+Found 120 unique characters
+Found 14 unique named entity tags
+10868 / 1464 / 2087 sentences in train / dev / test.
+Saving the mappings to disk...
+Loading pretrained embeddings from embeddings/glove_s100.txt...
+WARNING: 2349 invalid lines
+Loaded 931381 pretrained embeddings.
+938314 / 939151 (99.9109%) words have been initialized with pretrained embeddings.
+931381 found directly, 6926 after lowercasing, 7 after lowercasing + zero.
+Compiling...
+Starting epoch 0 at Thu Mar  8 11:51:04 2018...
+processed 22671 tokens with 726 phrases; found: 12 phrases; correct: 4.
+accuracy:  94.67%; precision:  33.33%; recall:   0.55%; FB1:   1.08
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  33.33%; recall:   1.27%; FB1:   2.44  12
+21460/22671 (94.65837%)
+processed 62402 tokens with 2103 phrases; found: 21 phrases; correct: 2.
+accuracy:  93.89%; precision:   9.52%; recall:   0.10%; FB1:   0.19
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:   9.52%; recall:   0.29%; FB1:   0.56  21
+58587/62402 (93.88641%)
+Score on dev: 1.08000
+Score on test: 0.19000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 70 phrases; correct: 30.
+accuracy:  94.97%; precision:  42.86%; recall:   4.13%; FB1:   7.54
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  42.86%; recall:   9.49%; FB1:  15.54  70
+21519/22671 (94.91862%)
+processed 62402 tokens with 2103 phrases; found: 147 phrases; correct: 38.
+accuracy:  94.04%; precision:  25.85%; recall:   1.81%; FB1:   3.38
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  25.85%; recall:   5.50%; FB1:   9.07  147
+58665/62402 (94.01141%)
+Score on dev: 7.54000
+Score on test: 3.38000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 77 phrases; correct: 38.
+accuracy:  95.00%; precision:  49.35%; recall:   5.23%; FB1:   9.46
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  49.35%; recall:  12.03%; FB1:  19.34  77
+21523/22671 (94.93626%)
+processed 62402 tokens with 2103 phrases; found: 183 phrases; correct: 59.
+accuracy:  94.15%; precision:  32.24%; recall:   2.81%; FB1:   5.16
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  32.24%; recall:   8.54%; FB1:  13.50  183
+58712/62402 (94.08673%)
+Score on dev: 9.46000
+Score on test: 5.16000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 139 phrases; correct: 73.
+accuracy:  95.17%; precision:  52.52%; recall:  10.06%; FB1:  16.88
+            LOCAL: precision:  71.43%; recall:   6.47%; FB1:  11.86  21
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  49.15%; recall:  18.35%; FB1:  26.73  118
+21552/22671 (95.06418%)
+processed 62402 tokens with 2103 phrases; found: 243 phrases; correct: 87.
+accuracy:  94.25%; precision:  35.80%; recall:   4.14%; FB1:   7.42
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  1
+      ORGANIZACAO: precision: 100.00%; recall:   0.17%; FB1:   0.33  1
+           PESSOA: precision:  35.68%; recall:  12.45%; FB1:  18.45  241
+58769/62402 (94.17807%)
+Score on dev: 16.88000
+Score on test: 7.42000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 138 phrases; correct: 79.
+accuracy:  95.22%; precision:  57.25%; recall:  10.88%; FB1:  18.29
+            LOCAL: precision:  75.00%; recall:  10.34%; FB1:  18.18  32
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  51.89%; recall:  17.41%; FB1:  26.07  106
+21569/22671 (95.13916%)
+processed 62402 tokens with 2103 phrases; found: 276 phrases; correct: 105.
+accuracy:  94.28%; precision:  38.04%; recall:   4.99%; FB1:   8.83
+            LOCAL: precision:  16.67%; recall:   0.12%; FB1:   0.24  6
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  38.52%; recall:  15.05%; FB1:  21.64  270
+58786/62402 (94.20531%)
+Score on dev: 18.29000
+Score on test: 8.83000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 95 phrases; correct: 59.
+accuracy:  95.16%; precision:  62.11%; recall:   8.13%; FB1:  14.37
+            LOCAL: precision:  88.89%; recall:   6.90%; FB1:  12.80  18
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  55.84%; recall:  13.61%; FB1:  21.88  77
+21559/22671 (95.09506%)
+processed 62402 tokens with 2103 phrases; found: 151 phrases; correct: 84.
+accuracy:  94.23%; precision:  55.63%; recall:   3.99%; FB1:   7.45
+            LOCAL: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  55.63%; recall:  12.16%; FB1:  19.95  151
+58767/62402 (94.17487%)
+Score on dev: 14.37000
+Score on test: 7.45000
+processed 22671 tokens with 726 phrases; found: 156 phrases; correct: 101.
+accuracy:  95.33%; precision:  64.74%; recall:  13.91%; FB1:  22.90
+            LOCAL: precision:  77.27%; recall:  14.66%; FB1:  24.64  44
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  59.82%; recall:  21.20%; FB1:  31.31  112
+21599/22671 (95.27149%)
+processed 62402 tokens with 2103 phrases; found: 189 phrases; correct: 111.
+accuracy:  94.30%; precision:  58.73%; recall:   5.28%; FB1:   9.69
+            LOCAL: precision:  81.25%; recall:   1.60%; FB1:   3.14  16
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           PESSOA: precision:  56.65%; recall:  14.18%; FB1:  22.69  173
+58810/62402 (94.24377%)
+Score on dev: 22.90000
+Score on test: 9.69000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 276 phrases; correct: 174.
+accuracy:  95.66%; precision:  63.04%; recall:  23.97%; FB1:  34.73
+            LOCAL: precision:  65.35%; recall:  35.78%; FB1:  46.24  127
+      ORGANIZACAO: precision:  25.00%; recall:   0.56%; FB1:   1.10  4
+           PESSOA: precision:  62.07%; recall:  28.48%; FB1:  39.05  145
+21673/22671 (95.59790%)
+processed 62402 tokens with 2103 phrases; found: 608 phrases; correct: 359.
+accuracy:  94.71%; precision:  59.05%; recall:  17.07%; FB1:  26.48
+            LOCAL: precision:  65.61%; recall:  23.00%; FB1:  34.06  285
+      ORGANIZACAO: precision:  40.00%; recall:   1.34%; FB1:   2.58  20
+           PESSOA: precision:  54.13%; recall:  23.73%; FB1:  33.00  303
+59054/62402 (94.63479%)
+Score on dev: 34.73000
+Score on test: 26.48000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 197 phrases; correct: 129.
+accuracy:  95.43%; precision:  65.48%; recall:  17.77%; FB1:  27.95
+            LOCAL: precision:  74.29%; recall:  22.41%; FB1:  34.44  70
+      ORGANIZACAO: precision:   0.00%; recall:   0.00%; FB1:   0.00  3
+           PESSOA: precision:  62.10%; recall:  24.37%; FB1:  35.00  124
+21629/22671 (95.40382%)
+processed 62402 tokens with 2103 phrases; found: 363 phrases; correct: 238.
+accuracy:  94.57%; precision:  65.56%; recall:  11.32%; FB1:  19.30
+            LOCAL: precision:  79.84%; recall:  12.18%; FB1:  21.13  124
+      ORGANIZACAO: precision:  33.33%; recall:   0.17%; FB1:   0.33  3
+           PESSOA: precision:  58.47%; recall:  19.97%; FB1:  29.77  236
+58978/62402 (94.51300%)
+Score on dev: 27.95000
+Score on test: 19.30000
+processed 22671 tokens with 726 phrases; found: 341 phrases; correct: 201.
+accuracy:  95.93%; precision:  58.94%; recall:  27.69%; FB1:  37.68
+            LOCAL: precision:  60.87%; recall:  36.21%; FB1:  45.41  138
+      ORGANIZACAO: precision:  37.93%; recall:   6.18%; FB1:  10.63  29
+           PESSOA: precision:  60.92%; recall:  33.54%; FB1:  43.27  174
+21734/22671 (95.86697%)
+processed 62402 tokens with 2103 phrases; found: 812 phrases; correct: 481.
+accuracy:  94.88%; precision:  59.24%; recall:  22.87%; FB1:  33.00
+            LOCAL: precision:  66.14%; recall:  30.75%; FB1:  41.98  378
+      ORGANIZACAO: precision:  60.00%; recall:   6.01%; FB1:  10.93  60
+           PESSOA: precision:  52.14%; recall:  28.22%; FB1:  36.62  374
+59156/62402 (94.79824%)
+Score on dev: 37.68000
+Score on test: 33.00000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+Epoch 0 done. Average cost: 3.259340. Ended at Thu Mar  8 11:59:57 2018...
+Starting epoch 1 at Thu Mar  8 11:59:57 2018...
+processed 22671 tokens with 726 phrases; found: 298 phrases; correct: 197.
+accuracy:  95.88%; precision:  66.11%; recall:  27.13%; FB1:  38.48
+            LOCAL: precision:  73.45%; recall:  35.78%; FB1:  48.12  113
+      ORGANIZACAO: precision:  66.67%; recall:   1.12%; FB1:   2.21  3
+           PESSOA: precision:  61.54%; recall:  35.44%; FB1:  44.98  182
+21732/22671 (95.85814%)
+processed 62402 tokens with 2103 phrases; found: 870 phrases; correct: 528.
+accuracy:  94.96%; precision:  60.69%; recall:  25.11%; FB1:  35.52
+            LOCAL: precision:  75.35%; recall:  33.09%; FB1:  45.98  357
+      ORGANIZACAO: precision:  78.57%; recall:   1.84%; FB1:   3.59  14
+           PESSOA: precision:  49.70%; recall:  35.89%; FB1:  41.68  499
+59214/62402 (94.89119%)
+Score on dev: 38.48000
+Score on test: 35.52000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 306 phrases; correct: 208.
+accuracy:  95.94%; precision:  67.97%; recall:  28.65%; FB1:  40.31
+            LOCAL: precision:  77.17%; recall:  30.60%; FB1:  43.83  92
+      ORGANIZACAO: precision:  65.12%; recall:  15.73%; FB1:  25.34  43
+           PESSOA: precision:  63.74%; recall:  34.49%; FB1:  44.76  171
+21746/22671 (95.91990%)
+processed 62402 tokens with 2103 phrases; found: 731 phrases; correct: 482.
+accuracy:  94.99%; precision:  65.94%; recall:  22.92%; FB1:  34.02
+            LOCAL: precision:  80.35%; recall:  28.17%; FB1:  41.71  285
+      ORGANIZACAO: precision:  65.38%; recall:   5.68%; FB1:  10.45  52
+           PESSOA: precision:  55.58%; recall:  31.69%; FB1:  40.37  394
+59252/62402 (94.95208%)
+Score on dev: 40.31000
+Score on test: 34.02000
+New best score on dev.
+Saving model to disk...
+processed 22671 tokens with 726 phrases; found: 341 phrases; correct: 246.
+accuracy:  96.32%; precision:  72.14%; recall:  33.88%; FB1:  46.11
+            LOCAL: precision:  72.22%; recall:  44.83%; FB1:  55.32  144
+      ORGANIZACAO: precision:  67.31%; recall:  19.66%; FB1:  30.43  52
+           PESSOA: precision:  73.79%; recall:  33.86%; FB1:  46.42  145
+21830/22671 (96.29042%)
+processed 62402 tokens with 2103 phrases; found: 847 phrases; correct: 595.
+accuracy:  95.29%; precision:  70.25%; recall:  28.29%; FB1:  40.34
+            LOCAL: precision:  74.78%; recall:  41.94%; FB1:  53.74  456
+      ORGANIZACAO: precision:  57.98%; recall:  11.52%; FB1:  19.22  119
+           PESSOA: precision:  68.01%; recall:  26.77%; FB1:  38.42  272
+59417/62402 (95.21650%)
+Score on dev: 46.11000
+Score on test: 40.34000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 314 phrases; correct: 233.
+accuracy:  96.28%; precision:  74.20%; recall:  32.09%; FB1:  44.81
+            LOCAL: precision:  81.31%; recall:  37.50%; FB1:  51.33  107
+      ORGANIZACAO: precision:  62.50%; recall:  19.66%; FB1:  29.91  56
+           PESSOA: precision:  73.51%; recall:  35.13%; FB1:  47.54  151
+21821/22671 (96.25072%)
+processed 62402 tokens with 2103 phrases; found: 842 phrases; correct: 606.
+accuracy:  95.49%; precision:  71.97%; recall:  28.82%; FB1:  41.15
+            LOCAL: precision:  78.50%; recall:  39.98%; FB1:  52.97  414
+      ORGANIZACAO: precision:  67.71%; recall:  10.85%; FB1:  18.71  96
+           PESSOA: precision:  65.06%; recall:  31.26%; FB1:  42.23  332
+59544/62402 (95.42002%)
+Score on dev: 44.81000
+Score on test: 41.15000
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 279 phrases; correct: 212.
+accuracy:  96.14%; precision:  75.99%; recall:  29.20%; FB1:  42.19
+            LOCAL: precision:  80.39%; recall:  35.34%; FB1:  49.10  102
+      ORGANIZACAO: precision:  69.44%; recall:  14.04%; FB1:  23.36  36
+           PESSOA: precision:  74.47%; recall:  33.23%; FB1:  45.95  141
+21790/22671 (96.11398%)
+processed 62402 tokens with 2103 phrases; found: 690 phrases; correct: 524.
+accuracy:  95.32%; precision:  75.94%; recall:  24.92%; FB1:  37.52
+            LOCAL: precision:  81.87%; recall:  34.44%; FB1:  48.48  342
+      ORGANIZACAO: precision:  71.43%; recall:   8.35%; FB1:  14.95  70
+           PESSOA: precision:  69.78%; recall:  28.08%; FB1:  40.04  278
+59449/62402 (95.26778%)
+Score on dev: 42.19000
+Score on test: 37.52000
+processed 22671 tokens with 726 phrases; found: 467 phrases; correct: 323.
+accuracy:  96.54%; precision:  69.16%; recall:  44.49%; FB1:  54.15
+            LOCAL: precision:  75.60%; recall:  54.74%; FB1:  63.50  168
+      ORGANIZACAO: precision:  55.06%; recall:  27.53%; FB1:  36.70  89
+           PESSOA: precision:  70.00%; recall:  46.52%; FB1:  55.89  210
+21882/22671 (96.51978%)
+processed 62402 tokens with 2103 phrases; found: 1533 phrases; correct: 930.
+accuracy:  95.60%; precision:  60.67%; recall:  44.22%; FB1:  51.16
+            LOCAL: precision:  69.85%; recall:  55.84%; FB1:  62.06  650
+      ORGANIZACAO: precision:  57.69%; recall:  20.03%; FB1:  29.74  208
+           PESSOA: precision:  52.74%; recall:  51.52%; FB1:  52.12  675
+59599/62402 (95.50816%)
+Score on dev: 54.15000
+Score on test: 51.16000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 349 phrases; correct: 268.
+accuracy:  96.44%; precision:  76.79%; recall:  36.91%; FB1:  49.86
+            LOCAL: precision:  74.69%; recall:  52.16%; FB1:  61.42  162
+      ORGANIZACAO: precision:  75.00%; recall:  23.60%; FB1:  35.90  56
+           PESSOA: precision:  80.15%; recall:  33.23%; FB1:  46.98  131
+21861/22671 (96.42715%)
+processed 62402 tokens with 2103 phrases; found: 939 phrases; correct: 695.
+accuracy:  95.65%; precision:  74.01%; recall:  33.05%; FB1:  45.69
+            LOCAL: precision:  75.14%; recall:  50.92%; FB1:  60.70  551
+      ORGANIZACAO: precision:  73.39%; recall:  13.36%; FB1:  22.60  109
+           PESSOA: precision:  72.04%; recall:  29.09%; FB1:  41.44  279
+59654/62402 (95.59629%)
+Score on dev: 49.86000
+Score on test: 45.69000
+processed 22671 tokens with 726 phrases; found: 365 phrases; correct: 288.
+accuracy:  96.69%; precision:  78.90%; recall:  39.67%; FB1:  52.80
+            LOCAL: precision:  84.73%; recall:  47.84%; FB1:  61.16  131
+      ORGANIZACAO: precision:  69.86%; recall:  28.65%; FB1:  40.64  73
+           PESSOA: precision:  78.26%; recall:  39.87%; FB1:  52.83  161
+21916/22671 (96.66975%)
+processed 62402 tokens with 2103 phrases; found: 1149 phrases; correct: 828.
+accuracy:  95.88%; precision:  72.06%; recall:  39.37%; FB1:  50.92
+            LOCAL: precision:  79.81%; recall:  50.55%; FB1:  61.90  515
+      ORGANIZACAO: precision:  65.44%; recall:  23.71%; FB1:  34.80  217
+           PESSOA: precision:  65.95%; recall:  39.80%; FB1:  49.64  417
+59783/62402 (95.80302%)
+Score on dev: 52.80000
+Score on test: 50.92000
+processed 22671 tokens with 726 phrases; found: 394 phrases; correct: 296.
+accuracy:  96.67%; precision:  75.13%; recall:  40.77%; FB1:  52.86
+            LOCAL: precision:  79.17%; recall:  49.14%; FB1:  60.64  144
+      ORGANIZACAO: precision:  66.18%; recall:  25.28%; FB1:  36.59  68
+           PESSOA: precision:  75.27%; recall:  43.35%; FB1:  55.02  182
+21910/22671 (96.64329%)
+processed 62402 tokens with 2103 phrases; found: 1246 phrases; correct: 865.
+accuracy:  95.83%; precision:  69.42%; recall:  41.13%; FB1:  51.66
+            LOCAL: precision:  82.95%; recall:  48.46%; FB1:  61.18  475
+      ORGANIZACAO: precision:  59.65%; recall:  22.70%; FB1:  32.89  228
+           PESSOA: precision:  61.69%; recall:  48.48%; FB1:  54.29  543
+59752/62402 (95.75334%)
+Score on dev: 52.86000
+Score on test: 51.66000
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 406 phrases; correct: 320.
+accuracy:  96.94%; precision:  78.82%; recall:  44.08%; FB1:  56.54
+            LOCAL: precision:  80.36%; recall:  58.19%; FB1:  67.50  168
+      ORGANIZACAO: precision:  77.27%; recall:  28.65%; FB1:  41.80  66
+           PESSOA: precision:  77.91%; recall:  42.41%; FB1:  54.92  172
+21973/22671 (96.92118%)
+processed 62402 tokens with 2103 phrases; found: 1282 phrases; correct: 911.
+accuracy:  96.16%; precision:  71.06%; recall:  43.32%; FB1:  53.83
+            LOCAL: precision:  72.77%; recall:  60.15%; FB1:  65.86  672
+      ORGANIZACAO: precision:  73.65%; recall:  18.20%; FB1:  29.18  148
+           PESSOA: precision:  67.75%; recall:  45.30%; FB1:  54.29  462
+59959/62402 (96.08506%)
+Score on dev: 56.54000
+Score on test: 53.83000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 376 phrases; correct: 294.
+accuracy:  96.60%; precision:  78.19%; recall:  40.50%; FB1:  53.36
+            LOCAL: precision:  76.84%; recall:  58.62%; FB1:  66.50  177
+      ORGANIZACAO: precision:  81.40%; recall:  19.66%; FB1:  31.67  43
+           PESSOA: precision:  78.85%; recall:  38.92%; FB1:  52.12  156
+21899/22671 (96.59477%)
+processed 62402 tokens with 2103 phrases; found: 1042 phrases; correct: 787.
+accuracy:  95.82%; precision:  75.53%; recall:  37.42%; FB1:  50.05
+            LOCAL: precision:  76.35%; recall:  57.56%; FB1:  65.64  613
+      ORGANIZACAO: precision:  82.67%; recall:  10.35%; FB1:  18.40  75
+           PESSOA: precision:  72.60%; recall:  37.19%; FB1:  49.19  354
+59763/62402 (95.77097%)
+Score on dev: 53.36000
+Score on test: 50.05000
+Epoch 1 done. Average cost: 1.496405. Ended at Thu Mar  8 12:08:49 2018...
+Starting epoch 2 at Thu Mar  8 12:08:49 2018...
+processed 22671 tokens with 726 phrases; found: 388 phrases; correct: 262.
+accuracy:  96.08%; precision:  67.53%; recall:  36.09%; FB1:  47.04
+            LOCAL: precision:  82.50%; recall:  28.45%; FB1:  42.31  80
+      ORGANIZACAO: precision:  45.76%; recall:  30.34%; FB1:  36.49  118
+           PESSOA: precision:  74.74%; recall:  44.94%; FB1:  56.13  190
+21769/22671 (96.02135%)
+processed 62402 tokens with 2103 phrases; found: 1125 phrases; correct: 722.
+accuracy:  95.10%; precision:  64.18%; recall:  34.33%; FB1:  44.73
+            LOCAL: precision:  91.70%; recall:  31.24%; FB1:  46.61  277
+      ORGANIZACAO: precision:  41.59%; recall:  21.87%; FB1:  28.67  315
+           PESSOA: precision:  63.23%; recall:  48.77%; FB1:  55.07  533
+59272/62402 (94.98414%)
+Score on dev: 47.04000
+Score on test: 44.73000
+processed 22671 tokens with 726 phrases; found: 359 phrases; correct: 267.
+accuracy:  96.33%; precision:  74.37%; recall:  36.78%; FB1:  49.22
+            LOCAL: precision:  78.47%; recall:  48.71%; FB1:  60.11  144
+      ORGANIZACAO: precision:  56.25%; recall:  25.28%; FB1:  34.88  80
+           PESSOA: precision:  80.74%; recall:  34.49%; FB1:  48.34  135
+21835/22671 (96.31247%)
+processed 62402 tokens with 2103 phrases; found: 858 phrases; correct: 679.
+accuracy:  95.74%; precision:  79.14%; recall:  32.29%; FB1:  45.86
+            LOCAL: precision:  82.82%; recall:  43.30%; FB1:  56.87  425
+      ORGANIZACAO: precision:  76.80%; recall:  16.03%; FB1:  26.52  125
+           PESSOA: precision:  75.00%; recall:  33.43%; FB1:  46.25  308
+59717/62402 (95.69725%)
+Score on dev: 49.22000
+Score on test: 45.86000
+processed 22671 tokens with 726 phrases; found: 346 phrases; correct: 260.
+accuracy:  96.20%; precision:  75.14%; recall:  35.81%; FB1:  48.51
+            LOCAL: precision:  69.84%; recall:  56.90%; FB1:  62.71  189
+      ORGANIZACAO: precision:  77.78%; recall:  23.60%; FB1:  36.21  54
+           PESSOA: precision:  83.50%; recall:  27.22%; FB1:  41.05  103
+21807/22671 (96.18896%)
+processed 62402 tokens with 2103 phrases; found: 879 phrases; correct: 674.
+accuracy:  95.41%; precision:  76.68%; recall:  32.05%; FB1:  45.20
+            LOCAL: precision:  75.43%; recall:  53.63%; FB1:  62.69  578
+      ORGANIZACAO: precision:  80.39%; recall:  13.69%; FB1:  23.40  102
+           PESSOA: precision:  78.39%; recall:  22.58%; FB1:  35.06  199
+59514/62402 (95.37194%)
+Score on dev: 48.51000
+Score on test: 45.20000
+processed 22671 tokens with 726 phrases; found: 547 phrases; correct: 375.
+accuracy:  96.96%; precision:  68.56%; recall:  51.65%; FB1:  58.92
+            LOCAL: precision:  66.41%; recall:  73.28%; FB1:  69.67  256
+      ORGANIZACAO: precision:  58.18%; recall:  35.96%; FB1:  44.44  110
+           PESSOA: precision:  77.90%; recall:  44.62%; FB1:  56.74  181
+21977/22671 (96.93882%)
+processed 62402 tokens with 2103 phrases; found: 1751 phrases; correct: 1110.
+accuracy:  96.21%; precision:  63.39%; recall:  52.78%; FB1:  57.60
+            LOCAL: precision:  60.46%; recall:  77.12%; FB1:  67.78  1037
+      ORGANIZACAO: precision:  63.74%; recall:  27.88%; FB1:  38.79  262
+           PESSOA: precision:  69.91%; recall:  45.73%; FB1:  55.29  452
+59995/62402 (96.14275%)
+Score on dev: 58.92000
+Score on test: 57.60000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 503 phrases; correct: 373.
+accuracy:  97.02%; precision:  74.16%; recall:  51.38%; FB1:  60.70
+            LOCAL: precision:  77.84%; recall:  65.09%; FB1:  70.89  194
+      ORGANIZACAO: precision:  67.71%; recall:  36.52%; FB1:  47.45  96
+           PESSOA: precision:  73.71%; recall:  49.68%; FB1:  59.36  213
+21994/22671 (97.01381%)
+processed 62402 tokens with 2103 phrases; found: 1588 phrases; correct: 1096.
+accuracy:  96.50%; precision:  69.02%; recall:  52.12%; FB1:  59.39
+            LOCAL: precision:  75.21%; recall:  64.58%; FB1:  69.49  698
+      ORGANIZACAO: precision:  65.44%; recall:  29.72%; FB1:  40.87  272
+           PESSOA: precision:  63.59%; recall:  56.87%; FB1:  60.05  618
+60178/62402 (96.43601%)
+Score on dev: 60.70000
+Score on test: 59.39000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 466 phrases; correct: 352.
+accuracy:  96.99%; precision:  75.54%; recall:  48.48%; FB1:  59.06
+            LOCAL: precision:  80.70%; recall:  59.48%; FB1:  68.49  171
+      ORGANIZACAO: precision:  66.35%; recall:  38.76%; FB1:  48.94  104
+           PESSOA: precision:  75.92%; recall:  45.89%; FB1:  57.20  191
+21987/22671 (96.98293%)
+processed 62402 tokens with 2103 phrases; found: 1403 phrases; correct: 1004.
+accuracy:  96.27%; precision:  71.56%; recall:  47.74%; FB1:  57.27
+            LOCAL: precision:  76.67%; recall:  59.41%; FB1:  66.94  630
+      ORGANIZACAO: precision:  66.90%; recall:  32.05%; FB1:  43.34  287
+           PESSOA: precision:  67.70%; recall:  47.61%; FB1:  55.90  486
+60043/62402 (96.21967%)
+Score on dev: 59.06000
+Score on test: 57.27000
+processed 22671 tokens with 726 phrases; found: 511 phrases; correct: 365.
+accuracy:  96.99%; precision:  71.43%; recall:  50.28%; FB1:  59.01
+            LOCAL: precision:  67.87%; recall:  64.66%; FB1:  66.23  221
+      ORGANIZACAO: precision:  68.83%; recall:  29.78%; FB1:  41.57  77
+           PESSOA: precision:  76.06%; recall:  51.27%; FB1:  61.25  213
+21986/22671 (96.97852%)
+processed 62402 tokens with 2103 phrases; found: 1703 phrases; correct: 1092.
+accuracy:  96.30%; precision:  64.12%; recall:  51.93%; FB1:  57.38
+            LOCAL: precision:  62.50%; recall:  68.88%; FB1:  65.54  896
+      ORGANIZACAO: precision:  70.39%; recall:  24.21%; FB1:  36.02  206
+           PESSOA: precision:  64.39%; recall:  56.01%; FB1:  59.91  601
+60042/62402 (96.21807%)
+Score on dev: 59.01000
+Score on test: 57.38000
+processed 22671 tokens with 726 phrases; found: 493 phrases; correct: 369.
+accuracy:  96.97%; precision:  74.85%; recall:  50.83%; FB1:  60.54
+            LOCAL: precision:  77.50%; recall:  66.81%; FB1:  71.76  200
+      ORGANIZACAO: precision:  64.55%; recall:  39.89%; FB1:  49.31  110
+           PESSOA: precision:  78.14%; recall:  45.25%; FB1:  57.31  183
+21981/22671 (96.95646%)
+processed 62402 tokens with 2103 phrases; found: 1400 phrases; correct: 1023.
+accuracy:  96.37%; precision:  73.07%; recall:  48.64%; FB1:  58.41
+            LOCAL: precision:  75.07%; recall:  63.71%; FB1:  68.93  690
+      ORGANIZACAO: precision:  77.84%; recall:  25.21%; FB1:  38.08  194
+           PESSOA: precision:  68.60%; recall:  51.23%; FB1:  58.66  516
+60105/62402 (96.31903%)
+Score on dev: 60.54000
+Score on test: 58.41000
+processed 22671 tokens with 726 phrases; found: 502 phrases; correct: 369.
+accuracy:  96.91%; precision:  73.51%; recall:  50.83%; FB1:  60.10
+            LOCAL: precision:  79.55%; recall:  60.34%; FB1:  68.63  176
+      ORGANIZACAO: precision:  65.04%; recall:  44.94%; FB1:  53.16  123
+           PESSOA: precision:  73.40%; recall:  47.15%; FB1:  57.42  203
+21967/22671 (96.89471%)
+processed 62402 tokens with 2103 phrases; found: 1469 phrases; correct: 1051.
+accuracy:  96.34%; precision:  71.55%; recall:  49.98%; FB1:  58.85
+            LOCAL: precision:  80.73%; recall:  57.20%; FB1:  66.95  576
+      ORGANIZACAO: precision:  68.26%; recall:  33.39%; FB1:  44.84  293
+           PESSOA: precision:  64.33%; recall:  55.86%; FB1:  59.80  600
+60087/62402 (96.29018%)
+Score on dev: 60.10000
+Score on test: 58.85000
+processed 22671 tokens with 726 phrases; found: 428 phrases; correct: 340.
+accuracy:  97.02%; precision:  79.44%; recall:  46.83%; FB1:  58.93
+            LOCAL: precision:  80.45%; recall:  62.07%; FB1:  70.07  179
+      ORGANIZACAO: precision:  76.83%; recall:  35.39%; FB1:  48.46  82
+           PESSOA: precision:  79.64%; recall:  42.09%; FB1:  55.07  167
+21993/22671 (97.00940%)
+processed 62402 tokens with 2103 phrases; found: 1342 phrases; correct: 1015.
+accuracy:  96.47%; precision:  75.63%; recall:  48.26%; FB1:  58.93
+            LOCAL: precision:  78.13%; recall:  60.64%; FB1:  68.28  631
+      ORGANIZACAO: precision:  73.93%; recall:  28.88%; FB1:  41.54  234
+           PESSOA: precision:  73.17%; recall:  50.51%; FB1:  59.76  477
+60170/62402 (96.42319%)
+Score on dev: 58.93000
+Score on test: 58.93000
+processed 22671 tokens with 726 phrases; found: 490 phrases; correct: 362.
+accuracy:  97.07%; precision:  73.88%; recall:  49.86%; FB1:  59.54
+            LOCAL: precision:  80.36%; recall:  58.19%; FB1:  67.50  168
+      ORGANIZACAO: precision:  60.00%; recall:  48.88%; FB1:  53.87  145
+           PESSOA: precision:  79.10%; recall:  44.30%; FB1:  56.80  177
+22002/22671 (97.04909%)
+processed 62402 tokens with 2103 phrases; found: 1735 phrases; correct: 1168.
+accuracy:  96.48%; precision:  67.32%; recall:  55.54%; FB1:  60.87
+            LOCAL: precision:  79.62%; recall:  61.99%; FB1:  69.71  633
+      ORGANIZACAO: precision:  52.12%; recall:  45.08%; FB1:  48.34  518
+           PESSOA: precision:  67.47%; recall:  57.02%; FB1:  61.80  584
+60154/62402 (96.39755%)
+Score on dev: 59.54000
+Score on test: 60.87000
+New best score on test.
+Epoch 2 done. Average cost: 1.116240. Ended at Thu Mar  8 12:17:34 2018...
+Starting epoch 3 at Thu Mar  8 12:17:34 2018...
+processed 22671 tokens with 726 phrases; found: 560 phrases; correct: 399.
+accuracy:  97.11%; precision:  71.25%; recall:  54.96%; FB1:  62.05
+            LOCAL: precision:  70.20%; recall:  74.14%; FB1:  72.12  245
+      ORGANIZACAO: precision:  62.50%; recall:  44.94%; FB1:  52.29  128
+           PESSOA: precision:  78.61%; recall:  46.52%; FB1:  58.45  187
+22010/22671 (97.08438%)
+processed 62402 tokens with 2103 phrases; found: 1721 phrases; correct: 1170.
+accuracy:  96.49%; precision:  67.98%; recall:  55.63%; FB1:  61.19
+            LOCAL: precision:  67.15%; recall:  73.43%; FB1:  70.15  889
+      ORGANIZACAO: precision:  62.93%; recall:  36.56%; FB1:  46.25  348
+           PESSOA: precision:  73.14%; recall:  51.23%; FB1:  60.26  484
+60170/62402 (96.42319%)
+Score on dev: 62.05000
+Score on test: 61.19000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 465 phrases; correct: 360.
+accuracy:  97.02%; precision:  77.42%; recall:  49.59%; FB1:  60.45
+            LOCAL: precision:  82.49%; recall:  62.93%; FB1:  71.39  177
+      ORGANIZACAO: precision:  65.69%; recall:  37.64%; FB1:  47.86  102
+           PESSOA: precision:  79.03%; recall:  46.52%; FB1:  58.57  186
+21994/22671 (97.01381%)
+processed 62402 tokens with 2103 phrases; found: 1352 phrases; correct: 1027.
+accuracy:  96.53%; precision:  75.96%; recall:  48.83%; FB1:  59.45
+            LOCAL: precision:  79.90%; recall:  57.20%; FB1:  66.67  582
+      ORGANIZACAO: precision:  73.23%; recall:  32.89%; FB1:  45.39  269
+           PESSOA: precision:  72.85%; recall:  52.82%; FB1:  61.24  501
+60205/62402 (96.47928%)
+Score on dev: 60.45000
+Score on test: 59.45000
+processed 22671 tokens with 726 phrases; found: 632 phrases; correct: 420.
+accuracy:  97.00%; precision:  66.46%; recall:  57.85%; FB1:  61.86
+            LOCAL: precision:  65.27%; recall:  73.71%; FB1:  69.23  262
+      ORGANIZACAO: precision:  52.84%; recall:  52.25%; FB1:  52.54  176
+           PESSOA: precision:  80.41%; recall:  49.37%; FB1:  61.18  194
+21981/22671 (96.95646%)
+processed 62402 tokens with 2103 phrases; found: 1972 phrases; correct: 1229.
+accuracy:  95.81%; precision:  62.32%; recall:  58.44%; FB1:  60.32
+            LOCAL: precision:  62.74%; recall:  76.63%; FB1:  68.99  993
+      ORGANIZACAO: precision:  52.05%; recall:  38.06%; FB1:  43.97  438
+           PESSOA: precision:  69.87%; recall:  54.70%; FB1:  61.36  541
+59721/62402 (95.70366%)
+Score on dev: 61.86000
+Score on test: 60.32000
+processed 22671 tokens with 726 phrases; found: 380 phrases; correct: 297.
+accuracy:  96.60%; precision:  78.16%; recall:  40.91%; FB1:  53.71
+            LOCAL: precision:  78.91%; recall:  50.00%; FB1:  61.21  147
+      ORGANIZACAO: precision:  72.84%; recall:  33.15%; FB1:  45.56  81
+           PESSOA: precision:  80.26%; recall:  38.61%; FB1:  52.14  152
+21898/22671 (96.59036%)
+processed 62402 tokens with 2103 phrases; found: 927 phrases; correct: 748.
+accuracy:  95.77%; precision:  80.69%; recall:  35.57%; FB1:  49.37
+            LOCAL: precision:  83.67%; recall:  45.39%; FB1:  58.85  441
+      ORGANIZACAO: precision:  79.85%; recall:  17.86%; FB1:  29.20  134
+           PESSOA: precision:  77.27%; recall:  39.36%; FB1:  52.16  352
+59744/62402 (95.74052%)
+Score on dev: 53.71000
+Score on test: 49.37000
+processed 22671 tokens with 726 phrases; found: 586 phrases; correct: 403.
+accuracy:  97.05%; precision:  68.77%; recall:  55.51%; FB1:  61.43
+            LOCAL: precision:  69.00%; recall:  68.10%; FB1:  68.55  229
+      ORGANIZACAO: precision:  54.24%; recall:  53.93%; FB1:  54.08  177
+           PESSOA: precision:  82.78%; recall:  47.15%; FB1:  60.08  180
+21995/22671 (97.01822%)
+processed 62402 tokens with 2103 phrases; found: 1870 phrases; correct: 1235.
+accuracy:  96.38%; precision:  66.04%; recall:  58.73%; FB1:  62.17
+            LOCAL: precision:  73.51%; recall:  68.27%; FB1:  70.79  755
+      ORGANIZACAO: precision:  50.56%; recall:  52.75%; FB1:  51.63  625
+           PESSOA: precision:  74.29%; recall:  52.68%; FB1:  61.64  490
+60088/62402 (96.29179%)
+Score on dev: 61.43000
+Score on test: 62.17000
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 554 phrases; correct: 377.
+accuracy:  96.95%; precision:  68.05%; recall:  51.93%; FB1:  58.91
+            LOCAL: precision:  58.06%; recall:  77.59%; FB1:  66.42  310
+      ORGANIZACAO: precision:  75.64%; recall:  33.15%; FB1:  46.09  78
+           PESSOA: precision:  83.13%; recall:  43.67%; FB1:  57.26  166
+21975/22671 (96.93000%)
+processed 62402 tokens with 2103 phrases; found: 1882 phrases; correct: 1134.
+accuracy:  95.93%; precision:  60.26%; recall:  53.92%; FB1:  56.91
+            LOCAL: precision:  53.40%; recall:  82.04%; FB1:  64.69  1249
+      ORGANIZACAO: precision:  72.11%; recall:  22.87%; FB1:  34.73  190
+           PESSOA: precision:  74.49%; recall:  47.76%; FB1:  58.20  443
+59828/62402 (95.87513%)
+Score on dev: 58.91000
+Score on test: 56.91000
+processed 22671 tokens with 726 phrases; found: 525 phrases; correct: 385.
+accuracy:  97.17%; precision:  73.33%; recall:  53.03%; FB1:  61.55
+            LOCAL: precision:  71.25%; recall:  73.71%; FB1:  72.46  240
+      ORGANIZACAO: precision:  66.67%; recall:  39.33%; FB1:  49.47  105
+           PESSOA: precision:  80.00%; recall:  45.57%; FB1:  58.06  180
+22024/22671 (97.14613%)
+processed 62402 tokens with 2103 phrases; found: 1571 phrases; correct: 1141.
+accuracy:  96.69%; precision:  72.63%; recall:  54.26%; FB1:  62.11
+            LOCAL: precision:  71.24%; recall:  72.82%; FB1:  72.02  831
+      ORGANIZACAO: precision:  73.88%; recall:  30.22%; FB1:  42.89  245
+           PESSOA: precision:  74.34%; recall:  53.26%; FB1:  62.06  495
+60308/62402 (96.64434%)
+Score on dev: 61.55000
+Score on test: 62.11000
+processed 22671 tokens with 726 phrases; found: 511 phrases; correct: 366.
+accuracy:  97.07%; precision:  71.62%; recall:  50.41%; FB1:  59.18
+            LOCAL: precision:  64.29%; recall:  65.95%; FB1:  65.11  238
+      ORGANIZACAO: precision:  71.91%; recall:  35.96%; FB1:  47.94  89
+           PESSOA: precision:  80.98%; recall:  47.15%; FB1:  59.60  184
+22002/22671 (97.04909%)
+processed 62402 tokens with 2103 phrases; found: 1608 phrases; correct: 1108.
+accuracy:  96.54%; precision:  68.91%; recall:  52.69%; FB1:  59.71
+            LOCAL: precision:  64.02%; recall:  69.37%; FB1:  66.59  881
+      ORGANIZACAO: precision:  77.78%; recall:  29.22%; FB1:  42.48  225
+           PESSOA: precision:  73.51%; recall:  53.40%; FB1:  61.86  502
+60197/62402 (96.46646%)
+Score on dev: 59.18000
+Score on test: 59.71000
+processed 22671 tokens with 726 phrases; found: 495 phrases; correct: 362.
+accuracy:  96.90%; precision:  73.13%; recall:  49.86%; FB1:  59.30
+            LOCAL: precision:  81.25%; recall:  44.83%; FB1:  57.78  128
+      ORGANIZACAO: precision:  60.78%; recall:  52.25%; FB1:  56.19  153
+           PESSOA: precision:  77.10%; recall:  52.22%; FB1:  62.26  214
+21963/22671 (96.87707%)
+processed 62402 tokens with 2103 phrases; found: 1471 phrases; correct: 1011.
+accuracy:  96.19%; precision:  68.73%; recall:  48.07%; FB1:  56.58
+            LOCAL: precision:  87.47%; recall:  39.48%; FB1:  54.41  367
+      ORGANIZACAO: precision:  56.50%; recall:  48.58%; FB1:  52.24  515
+           PESSOA: precision:  67.74%; recall:  57.74%; FB1:  62.34  589
+59989/62402 (96.13314%)
+Score on dev: 59.30000
+Score on test: 56.58000
+processed 22671 tokens with 726 phrases; found: 585 phrases; correct: 412.
+accuracy:  97.08%; precision:  70.43%; recall:  56.75%; FB1:  62.85
+            LOCAL: precision:  73.24%; recall:  67.24%; FB1:  70.11  213
+      ORGANIZACAO: precision:  60.00%; recall:  45.51%; FB1:  51.76  135
+           PESSOA: precision:  73.84%; recall:  55.38%; FB1:  63.29  237
+22005/22671 (97.06233%)
+processed 62402 tokens with 2103 phrases; found: 1834 phrases; correct: 1237.
+accuracy:  96.55%; precision:  67.45%; recall:  58.82%; FB1:  62.84
+            LOCAL: precision:  74.83%; recall:  67.65%; FB1:  71.06  735
+      ORGANIZACAO: precision:  70.73%; recall:  38.73%; FB1:  50.05  328
+           PESSOA: precision:  59.01%; recall:  65.85%; FB1:  62.24  771
+60213/62402 (96.49210%)
+Score on dev: 62.85000
+Score on test: 62.84000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 552 phrases; correct: 405.
+accuracy:  97.19%; precision:  73.37%; recall:  55.79%; FB1:  63.38
+            LOCAL: precision:  67.98%; recall:  74.14%; FB1:  70.93  253
+      ORGANIZACAO: precision:  66.99%; recall:  38.76%; FB1:  49.11  103
+           PESSOA: precision:  83.67%; recall:  51.90%; FB1:  64.06  196
+22034/22671 (97.19024%)
+processed 62402 tokens with 2103 phrases; found: 1751 phrases; correct: 1192.
+accuracy:  96.52%; precision:  68.08%; recall:  56.68%; FB1:  61.86
+            LOCAL: precision:  64.79%; recall:  73.55%; FB1:  68.89  923
+      ORGANIZACAO: precision:  72.73%; recall:  32.05%; FB1:  44.50  264
+           PESSOA: precision:  71.28%; recall:  58.18%; FB1:  64.06  564
+60201/62402 (96.47287%)
+Score on dev: 63.38000
+Score on test: 61.86000
+New best score on dev.
+Saving model to disk...
+Epoch 3 done. Average cost: 0.994709. Ended at Thu Mar  8 12:26:19 2018...
+Starting epoch 4 at Thu Mar  8 12:26:19 2018...
+processed 22671 tokens with 726 phrases; found: 548 phrases; correct: 408.
+accuracy:  97.24%; precision:  74.45%; recall:  56.20%; FB1:  64.05
+            LOCAL: precision:  81.56%; recall:  62.93%; FB1:  71.05  179
+      ORGANIZACAO: precision:  65.57%; recall:  44.94%; FB1:  53.33  122
+           PESSOA: precision:  73.68%; recall:  57.59%; FB1:  64.65  247
+22041/22671 (97.22112%)
+processed 62402 tokens with 2103 phrases; found: 1622 phrases; correct: 1164.
+accuracy:  96.58%; precision:  71.76%; recall:  55.35%; FB1:  62.50
+            LOCAL: precision:  82.61%; recall:  60.76%; FB1:  70.02  598
+      ORGANIZACAO: precision:  64.16%; recall:  41.24%; FB1:  50.20  385
+           PESSOA: precision:  66.20%; recall:  61.22%; FB1:  63.61  639
+60234/62402 (96.52575%)
+Score on dev: 64.05000
+Score on test: 62.50000
+New best score on dev.
+Saving model to disk...
+processed 22671 tokens with 726 phrases; found: 475 phrases; correct: 366.
+accuracy:  97.10%; precision:  77.05%; recall:  50.41%; FB1:  60.95
+            LOCAL: precision:  76.08%; recall:  68.53%; FB1:  72.11  209
+      ORGANIZACAO: precision:  71.25%; recall:  32.02%; FB1:  44.19  80
+           PESSOA: precision:  80.65%; recall:  47.47%; FB1:  59.76  186
+22012/22671 (97.09320%)
+processed 62402 tokens with 2103 phrases; found: 1500 phrases; correct: 1077.
+accuracy:  96.47%; precision:  71.80%; recall:  51.21%; FB1:  59.78
+            LOCAL: precision:  70.64%; recall:  67.77%; FB1:  69.18  780
+      ORGANIZACAO: precision:  82.07%; recall:  25.21%; FB1:  38.57  184
+           PESSOA: precision:  69.96%; recall:  54.27%; FB1:  61.12  536
+60172/62402 (96.42640%)
+Score on dev: 60.95000
+Score on test: 59.78000
+processed 22671 tokens with 726 phrases; found: 531 phrases; correct: 400.
+accuracy:  97.19%; precision:  75.33%; recall:  55.10%; FB1:  63.64
+            LOCAL: precision:  77.14%; recall:  69.83%; FB1:  73.30  210
+      ORGANIZACAO: precision:  65.57%; recall:  44.94%; FB1:  53.33  122
+           PESSOA: precision:  79.40%; recall:  50.00%; FB1:  61.36  199
+22030/22671 (97.17260%)
+processed 62402 tokens with 2103 phrases; found: 1405 phrases; correct: 1070.
+accuracy:  96.59%; precision:  76.16%; recall:  50.88%; FB1:  61.00
+            LOCAL: precision:  77.15%; recall:  65.19%; FB1:  70.67  687
+      ORGANIZACAO: precision:  73.54%; recall:  31.55%; FB1:  44.16  257
+           PESSOA: precision:  76.14%; recall:  50.80%; FB1:  60.94  461
+60242/62402 (96.53857%)
+Score on dev: 63.64000
+Score on test: 61.00000
+processed 22671 tokens with 726 phrases; found: 469 phrases; correct: 365.
+accuracy:  97.08%; precision:  77.83%; recall:  50.28%; FB1:  61.09
+            LOCAL: precision:  77.97%; recall:  59.48%; FB1:  67.48  177
+      ORGANIZACAO: precision:  67.86%; recall:  42.70%; FB1:  52.41  112
+           PESSOA: precision:  83.89%; recall:  47.78%; FB1:  60.89  180
+22008/22671 (97.07556%)
+processed 62402 tokens with 2103 phrases; found: 1512 phrases; correct: 1130.
+accuracy:  96.70%; precision:  74.74%; recall:  53.73%; FB1:  62.52
+            LOCAL: precision:  82.29%; recall:  62.85%; FB1:  71.27  621
+      ORGANIZACAO: precision:  64.42%; recall:  39.90%; FB1:  49.28  371
+           PESSOA: precision:  73.08%; recall:  54.99%; FB1:  62.76  520
+60310/62402 (96.64754%)
+Score on dev: 61.09000
+Score on test: 62.52000
+processed 22671 tokens with 726 phrases; found: 511 phrases; correct: 388.
+accuracy:  97.04%; precision:  75.93%; recall:  53.44%; FB1:  62.73
+            LOCAL: precision:  79.17%; recall:  65.52%; FB1:  71.70  192
+      ORGANIZACAO: precision:  62.50%; recall:  44.94%; FB1:  52.29  128
+           PESSOA: precision:  81.68%; recall:  49.37%; FB1:  61.54  191
+21999/22671 (97.03586%)
+processed 62402 tokens with 2103 phrases; found: 1463 phrases; correct: 1096.
+accuracy:  96.59%; precision:  74.91%; recall:  52.12%; FB1:  61.47
+            LOCAL: precision:  79.77%; recall:  59.16%; FB1:  67.94  603
+      ORGANIZACAO: precision:  67.30%; recall:  41.57%; FB1:  51.39  370
+           PESSOA: precision:  74.69%; recall:  52.97%; FB1:  61.98  490
+60245/62402 (96.54338%)
+Score on dev: 62.73000
+Score on test: 61.47000
+processed 22671 tokens with 726 phrases; found: 485 phrases; correct: 374.
+accuracy:  97.20%; precision:  77.11%; recall:  51.52%; FB1:  61.77
+            LOCAL: precision:  71.61%; recall:  72.84%; FB1:  72.22  236
+      ORGANIZACAO: precision:  82.50%; recall:  37.08%; FB1:  51.16  80
+           PESSOA: precision:  82.25%; recall:  43.99%; FB1:  57.32  169
+22034/22671 (97.19024%)
+processed 62402 tokens with 2103 phrases; found: 1489 phrases; correct: 1075.
+accuracy:  96.57%; precision:  72.20%; recall:  51.12%; FB1:  59.86
+            LOCAL: precision:  69.02%; recall:  69.86%; FB1:  69.44  823
+      ORGANIZACAO: precision:  82.32%; recall:  27.21%; FB1:  40.90  198
+           PESSOA: precision:  73.50%; recall:  49.78%; FB1:  59.36  468
+60231/62402 (96.52094%)
+Score on dev: 61.77000
+Score on test: 59.86000
+processed 22671 tokens with 726 phrases; found: 593 phrases; correct: 438.
+accuracy:  97.51%; precision:  73.86%; recall:  60.33%; FB1:  66.41
+            LOCAL: precision:  68.42%; recall:  78.45%; FB1:  73.09  266
+      ORGANIZACAO: precision:  72.73%; recall:  49.44%; FB1:  58.86  121
+           PESSOA: precision:  81.55%; recall:  53.16%; FB1:  64.37  206
+22103/22671 (97.49460%)
+processed 62402 tokens with 2103 phrases; found: 1954 phrases; correct: 1312.
+accuracy:  96.73%; precision:  67.14%; recall:  62.39%; FB1:  64.68
+            LOCAL: precision:  65.37%; recall:  78.47%; FB1:  71.32  976
+      ORGANIZACAO: precision:  68.02%; recall:  44.74%; FB1:  53.98  394
+           PESSOA: precision:  69.52%; recall:  58.76%; FB1:  63.69  584
+60327/62402 (96.67479%)
+Score on dev: 66.41000
+Score on test: 64.68000
+New best score on dev.
+Saving model to disk...
+New best score on test.
+processed 22671 tokens with 726 phrases; found: 443 phrases; correct: 349.
+accuracy:  97.02%; precision:  78.78%; recall:  48.07%; FB1:  59.71
+            LOCAL: precision:  79.55%; recall:  60.34%; FB1:  68.63  176
+      ORGANIZACAO: precision:  73.81%; recall:  34.83%; FB1:  47.33  84
+           PESSOA: precision:  80.33%; recall:  46.52%; FB1:  58.92  183
+21991/22671 (97.00057%)
+processed 62402 tokens with 2103 phrases; found: 1333 phrases; correct: 1035.
+accuracy:  96.45%; precision:  77.64%; recall:  49.22%; FB1:  60.24
+            LOCAL: precision:  78.89%; recall:  61.13%; FB1:  68.88  630
+      ORGANIZACAO: precision:  78.60%; recall:  30.05%; FB1:  43.48  229
+           PESSOA: precision:  75.53%; recall:  51.81%; FB1:  61.46  474
+60161/62402 (96.40877%)
+Score on dev: 59.71000
+Score on test: 60.24000
+processed 22671 tokens with 726 phrases; found: 559 phrases; correct: 414.
+accuracy:  97.16%; precision:  74.06%; recall:  57.02%; FB1:  64.44
+            LOCAL: precision:  78.97%; recall:  66.38%; FB1:  72.13  195
+      ORGANIZACAO: precision:  58.23%; recall:  51.69%; FB1:  54.76  158
+           PESSOA: precision:  81.55%; recall:  53.16%; FB1:  64.37  206
+22019/22671 (97.12408%)
+processed 62402 tokens with 2103 phrases; found: 1595 phrases; correct: 1170.
+accuracy:  96.65%; precision:  73.35%; recall:  55.63%; FB1:  63.28
+            LOCAL: precision:  79.67%; recall:  64.58%; FB1:  71.33  659
+      ORGANIZACAO: precision:  63.30%; recall:  42.90%; FB1:  51.14  406
+           PESSOA: precision:  73.21%; recall:  56.15%; FB1:  63.55  530
+60278/62402 (96.59626%)
+Score on dev: 64.44000
+Score on test: 63.28000
+processed 22671 tokens with 726 phrases; found: 464 phrases; correct: 370.
+accuracy:  97.03%; precision:  79.74%; recall:  50.96%; FB1:  62.18
+            LOCAL: precision:  81.72%; recall:  65.52%; FB1:  72.73  186
+      ORGANIZACAO: precision:  78.05%; recall:  35.96%; FB1:  49.23  82
+           PESSOA: precision:  78.57%; recall:  48.73%; FB1:  60.16  196
+21996/22671 (97.02263%)
+processed 62402 tokens with 2103 phrases; found: 1277 phrases; correct: 1004.
+accuracy:  96.41%; precision:  78.62%; recall:  47.74%; FB1:  59.41
+            LOCAL: precision:  81.83%; recall:  62.61%; FB1:  70.94  622
+      ORGANIZACAO: precision:  79.89%; recall:  23.21%; FB1:  35.96  174
+           PESSOA: precision:  74.01%; recall:  51.52%; FB1:  60.75  481
+60142/62402 (96.37832%)
+Score on dev: 62.18000
+Score on test: 59.41000
+processed 22671 tokens with 726 phrases; found: 517 phrases; correct: 399.
+accuracy:  97.25%; precision:  77.18%; recall:  54.96%; FB1:  64.20
+            LOCAL: precision:  80.63%; recall:  66.38%; FB1:  72.81  191
+      ORGANIZACAO: precision:  69.52%; recall:  41.01%; FB1:  51.59  105
+           PESSOA: precision:  77.83%; recall:  54.43%; FB1:  64.06  221
+22040/22671 (97.21671%)
+processed 62402 tokens with 2103 phrases; found: 1545 phrases; correct: 1146.
+accuracy:  96.82%; precision:  74.17%; recall:  54.49%; FB1:  62.83
+            LOCAL: precision:  80.31%; recall:  63.71%; FB1:  71.06  645
+      ORGANIZACAO: precision:  68.44%; recall:  34.39%; FB1:  45.78  301
+           PESSOA: precision:  70.45%; recall:  61.07%; FB1:  65.43  599
+60378/62402 (96.75651%)
+Score on dev: 64.20000
+Score on test: 62.83000
+Epoch 4 done. Average cost: 0.894138. Ended at Thu Mar  8 12:35:03 2018...
+Best F1 score:
+ dev: 66.41000,
+ test: 64.68000
+
+Process finished with exit code 0

@@ -218,7 +218,7 @@ best_test = -np.inf
 count = 0
 for epoch in range(n_epochs):
     epoch_costs = []
-    print("Starting epoch %i at..." % epoch, time.ctime())
+    print("Starting epoch %i at %s..." % (epoch, time.ctime()))
     for i, index in enumerate(np.random.permutation(len(train_data))):
         count += 1
         input = create_input(train_data[index], parameters, True, singletons)
@@ -241,5 +241,5 @@ for epoch in range(n_epochs):
             if test_score > best_test:
                 best_test = test_score
                 print("New best score on test.")
-    print("Epoch %i done. Average cost: %f. Ended at..." % (epoch, np.mean(epoch_costs)), time.ctime())
+    print("Epoch %i done. Average cost: %f. Ended at %s..." % (epoch, np.mean(epoch_costs), time.ctime()))
 print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
