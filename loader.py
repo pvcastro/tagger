@@ -5,7 +5,7 @@ from utils import create_dico, create_mapping, zero_digits
 from utils import iob2, iob_iobes
 
 
-def load_sentences(path, lower, zeros):
+def load_sentences(path, zeros):
     """
     Load sentences. A line must contain at least a word and its tag.
     Sentences are separated by empty lines.

@@ -152,9 +152,9 @@ zeros = parameters['zeros']
 tag_scheme = parameters['tag_scheme']
 
 # Load sentences
-train_sentences = loader.load_sentences(opts.train, lower, zeros)
-dev_sentences = loader.load_sentences(opts.dev, lower, zeros)
-test_sentences = loader.load_sentences(opts.test, lower, zeros)
+train_sentences = loader.load_sentences(opts.train, zeros)
+dev_sentences = loader.load_sentences(opts.dev, zeros)
+test_sentences = loader.load_sentences(opts.test, zeros)
 
 # Use selected tagging scheme (IOB / IOBES)
 update_tag_scheme(train_sentences, tag_scheme)
@@ -178,6 +178,8 @@ else:
 
 # Create a dictionary and a mapping for words / POS tags / tags
 dico_chars, char_to_id, id_to_char = char_mapping(train_sentences)
+print("Chars found\n" % (char_to_id.keys()))
+print(char_to_id.keys())
 dico_tags, tag_to_id, id_to_tag = tag_mapping(train_sentences)
 
 # Index data
