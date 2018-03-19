@@ -125,7 +125,8 @@ verbose = opts.verbose == 1
 
 # Check parameters validity
 assert os.path.isfile(opts.train)
-assert os.path.isfile(opts.dev)
+if opts.dev:
+    assert os.path.isfile(opts.dev)
 assert os.path.isfile(opts.test)
 assert parameters['char_dim'] > 0 or parameters['word_dim'] > 0
 assert 0. <= parameters['dropout'] < 1.0
@@ -153,7 +154,10 @@ tag_scheme = parameters['tag_scheme']
 
 # Load sentences
 train_sentences = loader.load_sentences(opts.train, zeros)
-dev_sentences = loader.load_sentences(opts.dev, zeros)
+if opts.dev:
+    dev_sentences = loader.load_sentences(opts.dev, zeros)
+else:
+    dev_sentences = []
 test_sentences = loader.load_sentences(opts.test, zeros)
 
 # Use selected tagging scheme (IOB / IOBES)
@@ -229,19 +233,22 @@ for epoch in range(n_epochs):
         if i % 50 == 0 and i > 0 == 0 and verbose:
             print("%i, cost average: %f" % (i, np.mean(epoch_costs[-50:])))
         if count % freq_eval == 0:
-            dev_score = evaluate(parameters, f_eval, dev_sentences,
-                                 dev_data, id_to_tag, verbose=verbose)
+            if opts.dev:
+                dev_score = evaluate(parameters, f_eval, dev_sentences,
+                                     dev_data, id_to_tag, verbose=verbose)
             test_score = evaluate(parameters, f_eval, test_sentences,
                                   test_data, id_to_tag, verbose=verbose)
-            print("Score on dev: %.5f" % dev_score)
+            if opts.dev:
+                print("Score on dev: %.5f" % dev_score)
             print("Score on test: %.5f" % test_score)
-            if dev_score > best_dev:
-                best_dev = dev_score
-                print("New best score on dev.")
-                print("Saving model to disk...")
-                model.save()
+            if opts.dev:
+                if dev_score > best_dev:
+                    best_dev = dev_score
+                    print("New best score on dev.")
             if test_score > best_test:
                 best_test = test_score
                 print("New best score on test.")
+                print("Saving model to disk...")
+                model.save()
     print("Epoch %i done. Average cost: %f. Ended at %s..." % (epoch, np.mean(epoch_costs), time.ctime()))
 print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
