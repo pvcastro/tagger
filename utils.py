@@ -272,7 +272,7 @@ def evaluate(parameters, f_eval, raw_sentences, parsed_sentences,
     scores_path = os.path.join(eval_temp, "eval.%i.scores" % eval_id)
     with codecs.open(output_path, 'w', 'utf8') as f:
         f.write("\n".join(predictions))
-    os.system("%s < %s > %s" % (eval_script, output_path, scores_path))
+    os.system("%s -l < %s > %s" % (eval_script, output_path, scores_path))
 
     # CoNLL evaluation results
     eval_lines = [l.rstrip() for l in codecs.open(scores_path, 'r', 'utf8')]
