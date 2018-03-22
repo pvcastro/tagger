@@ -120,6 +120,7 @@ parameters['cap_dim'] = opts.cap_dim
 parameters['crf'] = opts.crf == 1
 parameters['dropout'] = opts.dropout
 parameters['lr_method'] = opts.lr_method
+parameters['epochs'] = opts.epochs
 
 verbose = opts.verbose == 1
 
