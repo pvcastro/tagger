@@ -141,9 +141,9 @@ class LSTM(object):
         self.w_ci = shared((hidden_dim, hidden_dim), name + '__w_ci')
 
         # Forget gate weights
-        # self.w_xf = shared((input_dim, hidden_dim), name + '__w_xf')
-        # self.w_hf = shared((hidden_dim, hidden_dim), name + '__w_hf')
-        # self.w_cf = shared((hidden_dim, hidden_dim), name + '__w_cf')
+        #self.w_xf = shared((input_dim, hidden_dim), name + '__w_xf')
+        #self.w_hf = shared((hidden_dim, hidden_dim), name + '__w_hf')
+        #self.w_cf = shared((hidden_dim, hidden_dim), name + '__w_cf')
 
         # Output gate weights
         self.w_xo = shared((input_dim, hidden_dim), name + '__w_xo')
@@ -156,7 +156,7 @@ class LSTM(object):
 
         # Initialize the bias vectors, c_0 and h_0 to zero vectors
         self.b_i = shared((hidden_dim,), name + '__b_i')
-        # self.b_f = shared((hidden_dim,), name + '__b_f')
+        #self.b_f = shared((hidden_dim,), name + '__b_f')
         self.b_c = shared((hidden_dim,), name + '__b_c')
         self.b_o = shared((hidden_dim,), name + '__b_o')
         self.c_0 = shared((hidden_dim,), name + '__c_0')
@@ -164,10 +164,10 @@ class LSTM(object):
 
         # Define parameters
         self.params = [self.w_xi, self.w_hi, self.w_ci,
-                       # self.w_xf, self.w_hf, self.w_cf,
+                       #self.w_xf, self.w_hf, self.w_cf,
                        self.w_xo, self.w_ho, self.w_co,
                        self.w_xc, self.w_hc,
-                       self.b_i, self.b_c, self.b_o,  # self.b_f,
+                       self.b_i, self.b_c, self.b_o,  #self.b_f,
                        self.c_0, self.h_0]
 
     def link(self, input):
@@ -175,18 +175,26 @@ class LSTM(object):
         Propagate the input through the network and return the last hidden
         vector. The whole sequence is also accessible via self.h, but
         where self.h of shape (sequence_length, batch_size, output_dim)
+
+        Compute values for ft, it, cct, c_next, ot, a_next using the formulas
+        ft = sigmoid(np.dot(Wf, concat) + bf)
+        it = sigmoid(np.dot(Wi, concat) + bi)
+        cct = np.tanh(np.dot(Wc, concat) + bc)
+        c_next = np.multiply(ft, c_prev) + np.multiply(it, cct)
+        ot = sigmoid(np.dot(Wo, concat) + bo)
+        a_next = np.multiply(ot, np.tanh(c_next))
         """
         def recurrence(x_t, c_tm1, h_tm1):
             i_t = T.nnet.sigmoid(T.dot(x_t, self.w_xi) +
                                  T.dot(h_tm1, self.w_hi) +
                                  T.dot(c_tm1, self.w_ci) +
                                  self.b_i)
-            # f_t = T.nnet.sigmoid(T.dot(x_t, self.w_xf) +
-            #                      T.dot(h_tm1, self.w_hf) +
-            #                      T.dot(c_tm1, self.w_cf) +
-            #                      self.b_f)
-            c_t = ((1 - i_t) * c_tm1 + i_t * T.tanh(T.dot(x_t, self.w_xc) +
-                   T.dot(h_tm1, self.w_hc) + self.b_c))
+            #f_t = T.nnet.sigmoid(T.dot(x_t, self.w_xf) +
+            #                     T.dot(h_tm1, self.w_hf) +
+            #                     T.dot(c_tm1, self.w_cf) +
+            #                     self.b_f)
+            cct = T.tanh(T.dot(x_t, self.w_xc) + T.dot(h_tm1, self.w_hc) + self.b_c)
+            c_t = (1 - i_t) * c_tm1 + i_t * cct
             o_t = T.nnet.sigmoid(T.dot(x_t, self.w_xo) +
                                  T.dot(h_tm1, self.w_ho) +
                                  T.dot(c_t, self.w_co) +
