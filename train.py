@@ -251,5 +251,6 @@ for epoch in range(n_epochs):
                 print("New best score on test.")
                 print("Saving model to disk...")
                 model.save()
+            print("Best F1 score so far:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
     print("Epoch %i done. Average cost: %f. Ended at %s..." % (epoch, np.mean(epoch_costs), time.ctime()))
 print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
