@@ -8,7 +8,7 @@ EMBEDDINGS_FOLDER=./embeddings/
 RESULTS_FOLDER=./resultados/scripts/
 
 declare -a tag_schemes=("iob" "iobes")
-declare -a embeddings=("fasttext_s100" "wang2vec_s100" "glove_s100" "word2vec_s100")
+declare -a embeddings=("wang2vec_s100" "glove_s100" "word2vec_s100")
 declare -a cap_dim_values=("0" "1")
 declare -a lower_values=("0" "1")
 declare -a char_lstm_dim_values=("25" "50")

@@ -1,0 +1,245 @@
+Model location: ./models/tag_scheme=iob,lower=False,zeros=True,char_dim=25,char_lstm_dim=25,char_bidirect=True,word_dim=100,word_lstm_dim=200,word_bidirect=True,pre_emb=wang2vec_s100.txt,all_emb=True,cap_dim=0,crf=True,dropout=0.5,lr_method=sgd-lr_.005,epochs=5
+Found 15020 unique words (92529 in total)
+Loading pretrained embeddings from embeddings/wang2vec_s100.txt...
+Found 111 unique characters
+Chars found
+
+[u'$', u',', u'0', u'\xb7', u'@', u'\xc3', u'D', u'\xc7', u'H', u'L', u'P', u'\xd3', u'T', u'X', u'`', u'\xe3', u'd', u'\xe7', u'h', u'l', u'p', u'\xf3', u't', u'x', u'|', u"'", u'+', u'/', u';', u'?', u'\xc0', u'C', u'G', u'\xc8', u'K', u'O', u'S', u'\xd4', u'W', u'\xe0', u'c', u'g', u'\xe8', u'k', u'o', u's', u'\xf4', u'w', u'\xfc', u'&', u'\xa9', u'*', u'.', u'\xb5', u':', u'>', u'\xc1', u'B', u'F', u'\xc9', u'J', u'\xcd', u'N', u'R', u'\xd5', u'V', u'Z', u'\xdd', u'\xe1', u'b', u'f', u'\xe9', u'j', u'\xed', u'n', u'\xf1', u'r', u'\xf5', u'v', u'z', u'~', u'!', u'%', u'\xaa', u'-', u'\xae', u'\xb2', u'\xba', u'=', u'A', u'\xc2', u'E', u'I', u'\xca', u'M', u'Q', u'U', u'Y', u'\xda', u'a', u'\xe2', u'e', u'\xe6', u'i', u'\xea', u'm', u'q', u'u', u'\xf6', u'y', u'\xfa']
+Found 11 unique named entity tags
+2955 / 0 / 2087 sentences in train / dev / test.
+Saving the mappings to disk...
+Loading pretrained embeddings from embeddings/wang2vec_s100.txt...
+WARNING: 2350 invalid lines
+Loaded 931382 pretrained embeddings.
+935207 / 935724 (99.9447%) words have been initialized with pretrained embeddings.
+931382 found directly, 3818 after lowercasing, 7 after lowercasing + zero.
+Compiling...
+Starting epoch 0 at Mon Apr  2 10:05:48 2018...
+processed 62402 tokens with 2789 phrases; found: 364 phrases; correct: 67.
+accuracy:  91.38%; precision:  18.41%; recall:   2.40%; FB1:   4.25
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   44.88\% &   7.01\% &  12.13 \\
+ORGANIZACAO &    4.07\% &   1.50\% &   2.20 \\
+PESSOA  &    6.25\% &   0.14\% &   0.28 \\
+TEMPO   &    0.00\% &   0.00\% &   0.00 \\
+VALOR   &    0.00\% &   0.00\% &   0.00 \\\hline
+Overall &   18.41\% &   2.40\% &   4.25 \\\hline
+57026/62402 (91.38489%)
+Score on test: 4.25000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 4.25000
+processed 62402 tokens with 2789 phrases; found: 495 phrases; correct: 260.
+accuracy:  92.72%; precision:  52.53%; recall:   9.32%; FB1:  15.83
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   52.28\% &  12.67\% &  20.40 \\
+ORGANIZACAO &   30.77\% &   0.67\% &   1.31 \\
+PESSOA  &   52.56\% &  11.87\% &  19.36 \\
+TEMPO   &   25.64\% &   2.76\% &   4.99 \\
+VALOR   &   67.78\% &  18.83\% &  29.47 \\\hline
+Overall &   52.53\% &   9.32\% &  15.83 \\\hline
+57859/62402 (92.71978%)
+Score on test: 15.83000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 15.83000
+Epoch 0 done. Average cost: 8.550590. Ended at Mon Apr  2 10:08:11 2018...
+Starting epoch 1 at Mon Apr  2 10:08:11 2018...
+processed 62402 tokens with 2789 phrases; found: 585 phrases; correct: 372.
+accuracy:  92.97%; precision:  63.59%; recall:  13.34%; FB1:  22.05
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   72.99\% &  15.62\% &  25.73 \\
+ORGANIZACAO &   50.00\% &   2.34\% &   4.47 \\
+PESSOA  &   62.88\% &  24.02\% &  34.76 \\
+TEMPO   &   13.79\% &   1.10\% &   2.05 \\
+VALOR   &   67.78\% &  18.83\% &  29.47 \\\hline
+Overall &   63.59\% &  13.34\% &  22.05 \\\hline
+58016/62402 (92.97138%)
+Score on test: 22.05000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 22.05000
+processed 62402 tokens with 2789 phrases; found: 1260 phrases; correct: 673.
+accuracy:  93.40%; precision:  53.41%; recall:  24.13%; FB1:  33.24
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   73.86\% &  35.79\% &  48.22 \\
+ORGANIZACAO &   55.66\% &   9.85\% &  16.74 \\
+PESSOA  &   64.84\% &  24.02\% &  35.06 \\
+TEMPO   &    9.32\% &   4.14\% &   5.74 \\
+VALOR   &   41.40\% &  43.83\% &  42.58 \\\hline
+Overall &   53.41\% &  24.13\% &  33.24 \\\hline
+58282/62402 (93.39765%)
+Score on test: 33.24000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 33.24000
+processed 62402 tokens with 2789 phrases; found: 1462 phrases; correct: 836.
+accuracy:  93.77%; precision:  57.18%; recall:  29.97%; FB1:  39.33
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   73.61\% &  43.91\% &  55.01 \\
+ORGANIZACAO &   55.29\% &  15.69\% &  24.45 \\
+PESSOA  &   72.79\% &  32.13\% &  44.58 \\
+TEMPO   &    8.70\% &   4.97\% &   6.33 \\
+VALOR   &   49.15\% &  44.75\% &  46.85 \\\hline
+Overall &   57.18\% &  29.97\% &  39.33 \\\hline
+58514/62402 (93.76943%)
+Score on test: 39.33000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 39.33000
+Epoch 1 done. Average cost: 4.211670. Ended at Mon Apr  2 10:10:55 2018...
+Starting epoch 2 at Mon Apr  2 10:10:55 2018...
+processed 62402 tokens with 2789 phrases; found: 1834 phrases; correct: 1006.
+accuracy:  94.08%; precision:  54.85%; recall:  36.07%; FB1:  43.52
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   58.35\% &  61.01\% &  59.65 \\
+ORGANIZACAO &   56.68\% &  20.53\% &  30.15 \\
+PESSOA  &   75.65\% &  33.72\% &  46.65 \\
+TEMPO   &    5.99\% &   2.76\% &   3.78 \\
+VALOR   &   49.32\% &  44.44\% &  46.75 \\\hline
+Overall &   54.85\% &  36.07\% &  43.52 \\\hline
+58708/62402 (94.08032%)
+Score on test: 43.52000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 43.52000
+processed 62402 tokens with 2789 phrases; found: 1976 phrases; correct: 1164.
+accuracy:  94.27%; precision:  58.91%; recall:  41.74%; FB1:  48.86
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   71.59\% &  62.61\% &  66.80 \\
+ORGANIZACAO &   46.76\% &  28.88\% &  35.71 \\
+PESSOA  &   75.85\% &  45.01\% &  56.49 \\
+TEMPO   &   11.46\% &   4.97\% &   6.94 \\
+VALOR   &   46.65\% &  47.22\% &  46.93 \\\hline
+Overall &   58.91\% &  41.74\% &  48.86 \\\hline
+58826/62402 (94.26941%)
+Score on test: 48.86000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 48.86000
+processed 62402 tokens with 2789 phrases; found: 1678 phrases; correct: 1004.
+accuracy:  94.12%; precision:  59.83%; recall:  36.00%; FB1:  44.95
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   83.02\% &  38.50\% &  52.61 \\
+ORGANIZACAO &   57.63\% &  25.21\% &  35.08 \\
+PESSOA  &   67.62\% &  47.76\% &  55.98 \\
+TEMPO   &   19.14\% &  16.02\% &  17.44 \\
+VALOR   &   61.29\% &  46.91\% &  53.15 \\\hline
+Overall &   59.83\% &  36.00\% &  44.95 \\\hline
+58735/62402 (94.12359%)
+Score on test: 44.95000
+Best F1 score so far:
+ dev: -inf,
+ test: 48.86000
+Epoch 2 done. Average cost: 3.086622. Ended at Mon Apr  2 10:13:36 2018...
+Starting epoch 3 at Mon Apr  2 10:13:36 2018...
+processed 62402 tokens with 2789 phrases; found: 1342 phrases; correct: 861.
+accuracy:  94.03%; precision:  64.16%; recall:  30.87%; FB1:  41.68
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   78.56\% &  46.86\% &  58.71 \\
+ORGANIZACAO &   87.72\% &   8.35\% &  15.24 \\
+PESSOA  &   75.42\% &  39.07\% &  51.48 \\
+TEMPO   &    6.21\% &   2.49\% &   3.55 \\
+VALOR   &   50.84\% &  46.60\% &  48.63 \\\hline
+Overall &   64.16\% &  30.87\% &  41.68 \\\hline
+58677/62402 (94.03064%)
+Score on test: 41.68000
+Best F1 score so far:
+ dev: -inf,
+ test: 48.86000
+processed 62402 tokens with 2789 phrases; found: 2123 phrases; correct: 1271.
+accuracy:  94.14%; precision:  59.87%; recall:  45.57%; FB1:  51.75
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   78.59\% &  61.87\% &  69.24 \\
+ORGANIZACAO &   41.37\% &  37.23\% &  39.19 \\
+PESSOA  &   77.05\% &  49.06\% &  59.95 \\
+TEMPO   &   21.72\% &  16.02\% &  18.44 \\
+VALOR   &   62.45\% &  45.68\% &  52.76 \\\hline
+Overall &   59.87\% &  45.57\% &  51.75 \\\hline
+58743/62402 (94.13641%)
+Score on test: 51.75000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 51.75000
+processed 62402 tokens with 2789 phrases; found: 1785 phrases; correct: 1144.
+accuracy:  94.67%; precision:  64.09%; recall:  41.02%; FB1:  50.02
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   79.01\% &  61.13\% &  68.93 \\
+ORGANIZACAO &   52.87\% &  29.22\% &  37.63 \\
+PESSOA  &   80.69\% &  44.14\% &  57.06 \\
+TEMPO   &    6.98\% &   3.31\% &   4.49 \\
+VALOR   &   56.36\% &  47.84\% &  51.75 \\\hline
+Overall &   64.09\% &  41.02\% &  50.02 \\\hline
+59075/62402 (94.66844%)
+Score on test: 50.02000
+Best F1 score so far:
+ dev: -inf,
+ test: 51.75000
+Epoch 3 done. Average cost: 2.610576. Ended at Mon Apr  2 10:16:16 2018...
+Starting epoch 4 at Mon Apr  2 10:16:16 2018...
+processed 62402 tokens with 2789 phrases; found: 2028 phrases; correct: 1293.
+accuracy:  94.83%; precision:  63.76%; recall:  46.36%; FB1:  53.68
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   74.64\% &  62.98\% &  68.31 \\
+ORGANIZACAO &   64.11\% &  34.89\% &  45.19 \\
+PESSOA  &   74.89\% &  47.47\% &  58.10 \\
+TEMPO   &   26.15\% &  18.78\% &  21.86 \\
+VALOR   &   55.35\% &  54.32\% &  54.83 \\\hline
+Overall &   63.76\% &  46.36\% &  53.68 \\\hline
+59174/62402 (94.82709%)
+Score on test: 53.68000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 53.68000
+processed 62402 tokens with 2789 phrases; found: 1983 phrases; correct: 1257.
+accuracy:  94.57%; precision:  63.39%; recall:  45.07%; FB1:  52.68
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   81.37\% &  58.55\% &  68.10 \\
+ORGANIZACAO &   68.75\% &  29.38\% &  41.17 \\
+PESSOA  &   68.28\% &  52.97\% &  59.66 \\
+TEMPO   &   22.19\% &  19.61\% &  20.82 \\
+VALOR   &   58.74\% &  51.85\% &  55.08 \\\hline
+Overall &   63.39\% &  45.07\% &  52.68 \\\hline
+59014/62402 (94.57069%)
+Score on test: 52.68000
+Best F1 score so far:
+ dev: -inf,
+ test: 53.68000
+processed 62402 tokens with 2789 phrases; found: 2072 phrases; correct: 1307.
+accuracy:  94.83%; precision:  63.08%; recall:  46.86%; FB1:  53.77
+        & Precision &  Recall  & $F_{\beta=1}$ \\\hline
+LOCAL   &   79.68\% &  61.75\% &  69.58 \\
+ORGANIZACAO &   60.49\% &  32.72\% &  42.47 \\
+PESSOA  &   65.01\% &  54.85\% &  59.50 \\
+TEMPO   &   27.95\% &  17.68\% &  21.66 \\
+VALOR   &   54.25\% &  51.23\% &  52.70 \\\hline
+Overall &   63.08\% &  46.86\% &  53.77 \\\hline
+59178/62402 (94.83350%)
+Score on test: 53.77000
+New best score on test.
+Saving model to disk...
+Best F1 score so far:
+ dev: -inf,
+ test: 53.77000
+Epoch 4 done. Average cost: 2.267672. Ended at Mon Apr  2 10:18:54 2018...
+Best F1 score:
+ dev: -inf,
+ test: 53.77000
