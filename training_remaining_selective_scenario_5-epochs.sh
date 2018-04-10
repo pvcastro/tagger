@@ -7,10 +7,10 @@ TEST_SET=filtered_mini
 EMBEDDINGS_FOLDER=./embeddings/
 RESULTS_FOLDER=./resultados/scripts/
 
-declare -a tag_schemes=("iob" "iobes")
-declare -a embeddings=("glove_s100" "word2vec_s100")
+declare -a tag_schemes=("iob")
+declare -a embeddings=("wang2vec_s100")
 declare -a cap_dim_values=("0" "1")
-declare -a lower_values=("0" "1")
+declare -a lower_values=("1")
 declare -a char_lstm_dim_values=("25" "50")
 declare -a word_lstm_dim_values=("100" "200")
 
@@ -35,7 +35,7 @@ do
                         for word_lstm_dim in "${word_lstm_dim_values[@]}"
                         do
 
-	                        OUTPUT=$embedding/resultado_5-epochs_$TRAINING_SET\_$tag_scheme\_$embedding\_cap_dim-$cap_dim\_lower-$lower\_char_lstm_dim-$char_lstm_dim\_word_lstm_dim-$word_lstm_dim\_$i.txt
+	                        OUTPUT=cap_lower/resultado_5-epochs_$TRAINING_SET\_$tag_scheme\_$embedding\_cap_dim-$cap_dim\_lower-$lower\_char_lstm_dim-$char_lstm_dim\_word_lstm_dim-$word_lstm_dim\_$i.txt
 
                             printf "\n*** running $SCRIPT for $OUTPUT ***\n"
 
