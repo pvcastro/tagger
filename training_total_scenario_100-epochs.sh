@@ -28,6 +28,7 @@ do
 
                 for lower in "${lower_values[@]}"
                 do
+                .
 
                     for char_lstm_dim in "${char_lstm_dim_values[@]}"
                     do
