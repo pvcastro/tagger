@@ -5,8 +5,8 @@ import numpy as np
 import theano
 
 
-models_path = "./models"
-eval_path = "./evaluation"
+models_path = "/media/discoD/portuguese-tagger/models"
+eval_path = "/media/discoD/portuguese-tagger/evaluation"
 eval_temp = os.path.join(eval_path, "temp")
 eval_script = os.path.join(eval_path, "conlleval")
 
@@ -302,4 +302,5 @@ def evaluate(parameters, f_eval, raw_sentences, parsed_sentences,
     ))
 
     # F1 on all entities
-    return float(eval_lines[1].strip().split()[-1])
+    values = eval_lines[1].strip().split()
+    return float(values[-1]), float(values[-3].replace('%;', '')), float(values[-5].replace('%;', ''))

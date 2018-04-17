@@ -8,6 +8,7 @@ from collections import OrderedDict
 from utils import create_input
 import loader
 import time
+import csv
 
 from utils import models_path, evaluate, eval_script, eval_temp
 from loader import word_mapping, char_mapping, tag_mapping
@@ -66,12 +67,12 @@ optparser.add_option(
     type='int', help="Use a bidirectional LSTM for words"
 )
 optparser.add_option(
-    "-p", "--pre_emb", default="",
-    help="Location of pretrained embeddings"
-)
-optparser.add_option(
     "-A", "--all_emb", default="0",
     type='int', help="Load all embeddings"
+)
+optparser.add_option(
+    "-p", "--pre_emb", default="",
+    help="Location of pretrained embeddings"
 )
 optparser.add_option(
     "-a", "--cap_dim", default="0",
@@ -100,6 +101,14 @@ optparser.add_option(
 optparser.add_option(
     "-v", "--verbose", default="0",
     type='int', help="Verbose output (0 to disable)"
+)
+optparser.add_option(
+    "-R", "--results", default="",
+    help="CSV Results file location"
+)
+optparser.add_option(
+    "-n", "--round", default="0",
+    type='int', help="Training round"
 )
 opts = optparser.parse_args()[0]
 
@@ -213,6 +222,22 @@ if opts.reload:
     print('Reloading previous model...')
     model.reload()
 
+scenario = ''
+if 'filtered' in opts.train:
+    scenario = 'selective'
+elif 'categories' in opts.train:
+    scenario = 'total'
+
+embedding = ''
+if 'wang2vec' in opts.pre_emb:
+    embedding = 'Wang2Vec'
+elif 'fasttext' in opts.pre_emb:
+    embedding = 'FastText'
+elif 'glove' in opts.pre_emb:
+    embedding = 'Glove'
+elif 'word2vec' in opts.pre_emb:
+    embedding = 'Word2Vec'
+
 #
 # Train network
 #
@@ -220,8 +245,12 @@ singletons = set([word_to_id[k] for k, v
                   in dico_words_train.items() if v == 1])
 n_epochs = opts.epochs  # number of epochs over the training set
 freq_eval = 1000  # evaluate on dev every freq_eval steps
-best_dev = -np.inf
-best_test = -np.inf
+best_dev_fscore = -np.inf
+best_dev_precision = -np.inf
+best_dev_recall = -np.inf
+best_test_fscore = -np.inf
+best_test_precision = -np.inf
+best_test_recall = -np.inf
 count = 0
 for epoch in range(n_epochs):
     epoch_costs = []
@@ -235,22 +264,39 @@ for epoch in range(n_epochs):
             print("%i, cost average: %f" % (i, np.mean(epoch_costs[-50:])))
         if count % freq_eval == 0:
             if opts.dev:
-                dev_score = evaluate(parameters, f_eval, dev_sentences,
-                                     dev_data, id_to_tag, verbose=verbose)
-            test_score = evaluate(parameters, f_eval, test_sentences,
+                dev_fscore, dev_recall, dev_precision = evaluate(parameters, f_eval, dev_sentences,
+                                      dev_data, id_to_tag, verbose=verbose)
+            test_score, test_recall, test_precision = evaluate(parameters, f_eval, test_sentences,
                                   test_data, id_to_tag, verbose=verbose)
             if opts.dev:
-                print("Score on dev: %.5f" % dev_score)
+                print("Score on dev: %.5f" % dev_fscore)
             print("Score on test: %.5f" % test_score)
             if opts.dev:
-                if dev_score > best_dev:
-                    best_dev = dev_score
+                if dev_fscore > best_dev_fscore:
+                    best_dev_fscore = dev_fscore
+                    best_dev_precision = dev_precision
+                    best_dev_recall = dev_recall
                     print("New best score on dev.")
-            if test_score > best_test:
-                best_test = test_score
+            if test_score > best_test_fscore:
+                best_test_fscore = test_score
+                best_test_precision = test_precision
+                best_test_recall = test_recall
                 print("New best score on test.")
                 print("Saving model to disk...")
                 model.save()
-            print("Best F1 score so far:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
+            print("Best F1 score so far:\n dev: %.5f,\n test: %.5f" % (best_dev_fscore, best_test_fscore))
     print("Epoch %i done. Average cost: %f. Ended at %s..." % (epoch, np.mean(epoch_costs), time.ctime()))
-print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev, best_test))
+
+if opts.round is not None:
+    print("Writing results to %s..." % opts.results)
+    with open(opts.results, 'a') as csvfile:
+        writer = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_NONE)
+        try:
+            writer.writerow(
+                [opts.round, opts.epochs, scenario, embedding, opts.tag_scheme, opts.cap_dim == 1,
+                 opts.lower == 1, opts.char_lstm_dim, opts.word_lstm_dim, best_test_precision,
+                 best_test_recall, best_test_fscore])
+        except TypeError as error:
+            print(error)
+
+print("Best F1 score:\n dev: %.5f,\n test: %.5f" % (best_dev_fscore, best_test_fscore))
