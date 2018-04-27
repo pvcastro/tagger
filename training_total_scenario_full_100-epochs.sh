@@ -7,7 +7,7 @@ TEST_SET=categories_mini
 EMBEDDINGS_FOLDER=./embeddings/
 RESULTS_FOLDER=./resultados/scripts/
 
-declare -a tag_schemes=("iob")
+declare -a tag_schemes=("iobes")
 declare -a embeddings=("wang2vec_s100")
 declare -a cap_dim_values=("1")
 declare -a lower_values=("1")

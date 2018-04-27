@@ -5,8 +5,8 @@ import numpy as np
 import theano
 
 
-models_path = "/media/discoD/portuguese-tagger/models"
-eval_path = "/media/discoD/portuguese-tagger/evaluation"
+models_path = "./models"
+eval_path = "./evaluation"
 eval_temp = os.path.join(eval_path, "temp")
 eval_script = os.path.join(eval_path, "conlleval")
 
