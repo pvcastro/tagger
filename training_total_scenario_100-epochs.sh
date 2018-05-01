@@ -2,8 +2,8 @@
 
 SCRIPT=./train.py
 DATASET=./dataset/
-TRAINING_SET=categories_harem_I
-TEST_SET=categories_mini
+TRAINING_SET=categories_harem_I_cicero
+TEST_SET=categories_mini_cicero
 EMBEDDINGS_FOLDER=./embeddings/
 RESULTS_FOLDER=./resultados/scripts/
 
